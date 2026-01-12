@@ -1,4 +1,3 @@
-// src/main.ts
 import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
@@ -23,7 +22,6 @@ const router = createRouter({
   },
 });
 
-// IMPORTANT: aplica el tema ANTES de renderizar
 useTheme().initTheme();
 
 const app = createApp(App);
@@ -33,7 +31,6 @@ app.use(PrimeVue, {
   theme: {
     preset: Aura,
     options: {
-      // Debe ser un selector real
       darkModeSelector: ".dark",
       cssLayer: true,
     },

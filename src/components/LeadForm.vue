@@ -3,33 +3,28 @@
     class="flex flex-col items-center text-sm text-slate-900 dark:text-slate-100"
     @submit.prevent="onSubmit"
   >
-    <p
-      class="text-xs font-medium px-3 py-1 rounded-full
-             bg-indigo-200 text-indigo-700
-             dark:bg-indigo-500/15 dark:text-indigo-200"
+    <h1
+      class="text-4xl font-bold py-4 text-center text-slate-900 dark:text-slate-50"
     >
-      Contact Us
-    </p>
-
-    <h1 class="text-4xl font-bold py-4 text-center text-slate-900 dark:text-slate-50">
-      Let’s Get In Touch.
+      ¡Contáctanos!
     </h1>
 
-    <p class="max-md:text-sm pb-10 text-center text-slate-600 dark:text-slate-300">
-      Or just reach out manually to us at
+    <p
+      class="max-md:text-sm pb-10 text-center text-slate-600 dark:text-slate-300"
+    >
+      ¿Tienes preguntas? Escríbenos a :
       <a href="#" class="text-indigo-600 hover:underline dark:text-indigo-300">
-        hello@prebuiltui.com
+        deepdataacademy@gmail.com
       </a>
     </p>
 
     <div class="max-w-96 w-full px-4">
-      <label for="name" class="font-medium text-slate-800 dark:text-slate-200">Full Name</label>
+      <label for="name" class="font-medium text-slate-800 dark:text-slate-200"
+        >Nombre Completo</label
+      >
 
       <div
-        class="flex items-center mt-2 mb-4 h-10 pl-3 rounded-full overflow-hidden transition-all
-               border border-slate-300 bg-white/60
-               focus-within:ring-2 focus-within:ring-indigo-400
-               dark:border-white/15 dark:bg-white/5 dark:focus-within:ring-indigo-300"
+        class="flex items-center mt-2 mb-4 h-10 pl-3 rounded-full overflow-hidden transition-all border border-slate-300 bg-white/60 focus-within:ring-2 focus-within:ring-indigo-400 dark:border-white/15 dark:bg-white/5 dark:focus-within:ring-indigo-300"
       >
         <svg
           class="shrink-0 text-slate-500 dark:text-slate-300"
@@ -50,24 +45,22 @@
           id="name"
           v-model.trim="name"
           type="text"
-          class="h-full px-2 w-full outline-none bg-transparent
-                 text-slate-900 placeholder:text-slate-400
-                 dark:text-slate-50 dark:placeholder:text-slate-400"
+          class="h-full px-2 w-full outline-none bg-transparent text-slate-900 placeholder:text-slate-400 dark:text-slate-50 dark:placeholder:text-slate-400"
           placeholder="Enter your full name"
           autocomplete="name"
           required
         />
       </div>
 
-      <label for="email" class="font-medium mt-4 text-slate-800 dark:text-slate-200">
-        Email Address
+      <label
+        for="email"
+        class="font-medium mt-4 text-slate-800 dark:text-slate-200"
+      >
+        Correo Electrónico
       </label>
 
       <div
-        class="flex items-center mt-2 mb-4 h-10 pl-3 rounded-full overflow-hidden transition-all
-               border border-slate-300 bg-white/60
-               focus-within:ring-2 focus-within:ring-indigo-400
-               dark:border-white/15 dark:bg-white/5 dark:focus-within:ring-indigo-300"
+        class="flex items-center mt-2 mb-4 h-10 pl-3 rounded-full overflow-hidden transition-all border border-slate-300 bg-white/60 focus-within:ring-2 focus-within:ring-indigo-400 dark:border-white/15 dark:bg-white/5 dark:focus-within:ring-indigo-300"
       >
         <svg
           class="shrink-0 text-slate-500 dark:text-slate-300"
@@ -88,9 +81,7 @@
           id="email"
           v-model.trim="email"
           type="email"
-          class="h-full px-2 w-full outline-none bg-transparent
-                 text-slate-900 placeholder:text-slate-400
-                 dark:text-slate-50 dark:placeholder:text-slate-400"
+          class="h-full px-2 w-full outline-none bg-transparent text-slate-900 placeholder:text-slate-400 dark:text-slate-50 dark:placeholder:text-slate-400"
           placeholder="Enter your email address"
           autocomplete="email"
           required
@@ -100,12 +91,9 @@
       <button
         type="submit"
         :disabled="isSubmitting"
-        class="flex items-center justify-center gap-1 mt-5 py-2.5 w-full rounded-full transition
-               bg-indigo-500 hover:bg-indigo-600 text-white
-               disabled:opacity-60 disabled:cursor-not-allowed
-               dark:bg-indigo-500 dark:hover:bg-indigo-400"
+        class="flex items-center justify-center gap-1 mt-5 py-2.5 w-full rounded-full transition bg-indigo-500 hover:bg-indigo-600 text-white disabled:opacity-60 disabled:cursor-not-allowed dark:bg-indigo-500 dark:hover:bg-indigo-400"
       >
-        {{ isSubmitting ? "Opening WhatsApp..." : "Submit Form" }}
+        {{ isSubmitting ? "Opening WhatsApp..." : "Enviar " }}
         <svg
           class="mt-0.5"
           width="21"
@@ -133,7 +121,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 
-const WHATSAPP_NUMBER = "51930783601"; 
+const WHATSAPP_NUMBER = "51930783601";
 
 const name = ref("");
 const email = ref("");

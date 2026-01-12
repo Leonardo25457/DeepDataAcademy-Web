@@ -5,7 +5,6 @@
     :aria-label="`Cuenta regresiva al ${readable}`"
   >
     <template v-for="(b, i) in boxes" :key="b.label">
-      <!-- Grupo: etiqueta arriba + caja -->
       <div class="text-center">
         <div class="text-[10px] sm:text-xs mb-1 font-semibold opacity-90">
           {{ b.label }}
@@ -20,7 +19,6 @@
           </span>
         </div>
       </div>
-      <!-- Dos puntos entre bloques -->
       <div v-if="i < boxes.length - 1" class="pb-2 sm:pb-3">
         <span class="text-2xl sm:text-3xl font-black text-white/90">:</span>
       </div>

@@ -2,7 +2,6 @@
   <div
     class="w-full bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-2xl shadow-lg dark:shadow-none"
   >
-    <!-- Importante: grid 4 cols + divide-x = no se corta en mobile -->
     <div
       class="grid grid-cols-4 divide-x divide-slate-200 dark:divide-slate-700/60"
     >

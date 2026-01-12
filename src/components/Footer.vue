@@ -89,7 +89,6 @@ const year = new Date().getFullYear();
 const email = ref("");
 
 function subscribe() {
-  // aquí conectas tu API real
   console.log("newsletter:", email.value);
   email.value = "";
 }

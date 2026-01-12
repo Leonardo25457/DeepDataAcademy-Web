@@ -326,7 +326,6 @@ function startConversation() {
 
   isSubmitting.value = true;
 
-  // ✅ Número destino (DeepData) - sin +, sin espacios
   const WHATSAPP_NUMBER = "51930783601";
 
   const phonePretty = normalizePhone(form.country, form.phone);
@@ -342,10 +341,10 @@ function startConversation() {
 
   window.open(url, "_blank", "noopener,noreferrer");
 
-  // opcional: cerrar widget
+  // cerrar widget
   isOpen.value = false;
 
-  // opcional: limpiar
+  // limpiar
   form.name = "";
   form.email = "";
   form.phone = "";
@@ -410,12 +409,10 @@ onBeforeUnmount(() => {
   opacity: 0;
 }
 
-/* Glow avatar */
 .shadow-avatar-strong {
   box-shadow: 0 14px 28px rgba(2, 6, 23, 0.32);
 }
 
-/* Botones header */
 .icon-btn {
   width: 28px;
   height: 28px;
@@ -429,7 +426,6 @@ onBeforeUnmount(() => {
   background: rgba(255, 255, 255, 0.18);
 }
 
-/* Inputs chip compactos */
 .input-wrap {
   position: relative;
   display: flex;

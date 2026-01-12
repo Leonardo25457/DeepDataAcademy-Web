@@ -1,4 +1,3 @@
-// src/composables/useTheme.ts
 import { ref } from "vue";
 
 const STORAGE_KEY = "dda_theme"; // "dark" | "light"
@@ -16,7 +15,8 @@ function initTheme() {
   if (saved === "dark") return applyTheme(true);
   if (saved === "light") return applyTheme(false);
 
-  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ?? false;
+  const prefersDark =
+    window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ?? false;
   applyTheme(prefersDark);
 }
 

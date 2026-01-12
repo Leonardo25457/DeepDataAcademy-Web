@@ -46,7 +46,6 @@
     <!-- Content -->
     <div class="hero__container">
       <div class="hero__grid">
-        <!-- Left column (real layout; no hacks de padding-right) -->
         <div class="hero__content">
           <div class="hero__top">
             <div class="hero__chips">
@@ -55,7 +54,9 @@
                 <span class="chip-txt">{{ current.kicker }}</span>
               </span>
 
-              <span v-if="current.badge" class="badge">{{ current.badge }}</span>
+              <span v-if="current.badge" class="badge">{{
+                current.badge
+              }}</span>
             </div>
 
             <h2 class="hero__title">
@@ -95,7 +96,11 @@
               </div>
             </div>
 
-            <div class="hero__countdown" role="group" aria-label="Cuenta regresiva del evento">
+            <div
+              class="hero__countdown"
+              role="group"
+              aria-label="Cuenta regresiva del evento"
+            >
               <div class="count-item">
                 <div class="count-label">Días</div>
                 <div class="count-value">{{ countdown.days }}</div>
@@ -119,14 +124,20 @@
           </div>
         </div>
 
-        <!-- Right column spacer (reserva real para el arte en desktop) -->
         <div class="hero__right-spacer" aria-hidden="true"></div>
       </div>
     </div>
 
     <!-- Controls -->
     <div class="hero__controls" aria-label="Controles del carrusel">
-      <button type="button" class="nav-btn" @click="prev(true)" aria-label="Anterior">‹</button>
+      <button
+        type="button"
+        class="nav-btn"
+        @click="prev(true)"
+        aria-label="Anterior"
+      >
+        ‹
+      </button>
 
       <div class="dots" role="tablist" aria-label="Selector de workshop">
         <button
@@ -141,7 +152,14 @@
         />
       </div>
 
-      <button type="button" class="nav-btn" @click="next(true)" aria-label="Siguiente">›</button>
+      <button
+        type="button"
+        class="nav-btn"
+        @click="next(true)"
+        aria-label="Siguiente"
+      >
+        ›
+      </button>
     </div>
   </section>
 </template>
@@ -180,7 +198,11 @@ const slides: Slide[] = [
     kicker: "Workshop online",
     badge: "GRATUITO",
     desc: "Construye una landing y secciones tipo plataforma, con UI moderna, responsive y componentes reutilizables.",
-    points: ["Aprende con una demo real", "UI responsive + componentes", "Buenas prácticas de front-end"],
+    points: [
+      "Aprende con una demo real",
+      "UI responsive + componentes",
+      "Buenas prácticas de front-end",
+    ],
     ctaText: "¡Inscríbete ahora!",
     ctaHref: "#cta",
     secondaryCtaText: "Ver detalles",
@@ -199,7 +221,11 @@ const slides: Slide[] = [
     kicker: "Workshop online",
     badge: "NUEVO",
     desc: "Detección, extracción y automatización: verás casos reales y resultados visibles.",
-    points: ["Computer Vision práctico", "Python + casos reales", "Resultados medibles"],
+    points: [
+      "Computer Vision práctico",
+      "Python + casos reales",
+      "Resultados medibles",
+    ],
     ctaText: "Ver temario",
     ctaHref: "#workshops",
     image: "/img/workshop-vision.jpg",
@@ -277,7 +303,10 @@ let autoplayId: number | null = null;
 const paused = ref(false);
 
 function prefersReducedMotion() {
-  return typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+  );
 }
 
 function stopAutoplay() {
@@ -425,12 +454,18 @@ onBeforeUnmount(() => {
 .hero__decor {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(900px 380px at 14% 18%, rgba(255,255,255,0.10), transparent 60%),
-    radial-gradient(680px 320px at 78% 14%, rgba(0,200,255,0.12), transparent 62%);
+  background: radial-gradient(
+      900px 380px at 14% 18%,
+      rgba(255, 255, 255, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      680px 320px at 78% 14%,
+      rgba(0, 200, 255, 0.12),
+      transparent 62%
+    );
 }
 
-/* Overlay: más “Crunchy”, fuerte izquierda, suave hacia derecha */
 .hero__scrim {
   position: absolute;
   inset: 0;
@@ -440,13 +475,12 @@ onBeforeUnmount(() => {
     rgba(5, 45, 85, 0.96) 0%,
     rgba(5, 45, 85, 0.86) 40%,
     rgba(5, 45, 85, 0.58) 52%,
-    rgba(5, 45, 85, 0.20) 70%,
+    rgba(5, 45, 85, 0.2) 70%,
     transparent 88%
   );
   pointer-events: none;
 }
 
-/* Imagen: ocupa 50% derecho real */
 .hero__art {
   position: absolute;
   top: 0;
@@ -459,22 +493,19 @@ onBeforeUnmount(() => {
   object-fit: cover;
   pointer-events: none;
   opacity: 0.98;
-
-  /* Fade suave desde el borde izquierdo del 50% */
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%);
-          mask-image: linear-gradient(90deg, transparent 0%, #000 18%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%);
 
-  filter: drop-shadow(0 16px 34px rgba(0,0,0,0.25));
+  filter: drop-shadow(0 16px 34px rgba(0, 0, 0, 0.25));
 }
 
 .hero__art.is-hidden {
   display: none;
 }
 
-/* ===== Container / Grid 50-50 ===== */
 .hero__container {
   position: relative;
-  z-index: 2;                 /* ✅ el contenido encima del scrim */
+  z-index: 2;
   height: 100%;
 
   max-width: 1440px;
@@ -483,7 +514,6 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: stretch;
 
-  /* deja espacio real para contador + controles */
   padding: 24px clamp(12px, 1.6vw, 20px) 96px;
 }
 
@@ -491,11 +521,10 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr; /* mobile */
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
-/* Desktop: 50 / 50 real */
 @media (min-width: 1024px) {
   .hero__grid {
     grid-template-columns: 1fr 1fr;
@@ -508,18 +537,17 @@ onBeforeUnmount(() => {
 }
 
 .hero__right-spacer {
-  display: none; /* solo sirve como columna derecha */
+  display: none;
 }
 
-/* ===== Content (izquierda) ===== */
 .hero__content {
   height: 100%;
   display: flex;
   flex-direction: column;
 
-  justify-content: space-between;  /* <-- clave */
+  justify-content: space-between;
   padding-top: 10px;
-  padding-bottom: 12px;  
+  padding-bottom: 12px;
 }
 
 .hero__top {
@@ -536,7 +564,7 @@ onBeforeUnmount(() => {
 
 .hero__title {
   margin: 0;
-  margin-top: 6px; /* margen para que no se pegue a chips */
+  margin-top: 6px;
   font-weight: 950;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -559,7 +587,7 @@ onBeforeUnmount(() => {
 .hero__desc {
   margin: 0;
   margin-top: 2px;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 14px;
   line-height: 1.55;
   max-width: 66ch;
@@ -585,11 +613,10 @@ onBeforeUnmount(() => {
   height: 7px;
   border-radius: 999px;
   margin-top: 7px;
-  background: rgba(255,255,255,0.56);
+  background: rgba(255, 255, 255, 0.56);
   flex: 0 0 auto;
 }
 
-/* ===== Bottom (fecha + botones + contador) ===== */
 .hero__bottom {
   margin-top: 0;
 }
@@ -606,7 +633,7 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 850;
   font-size: 14px;
 }
@@ -625,8 +652,12 @@ onBeforeUnmount(() => {
   border-radius: 9999px;
   padding: 0.72rem 1.1rem;
   font-weight: 950;
-  background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10));
-  border: 1px solid rgba(255,255,255,0.22);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.1)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(10px);
   transition: transform 150ms ease, background 150ms ease;
   text-decoration: none;
@@ -634,7 +665,11 @@ onBeforeUnmount(() => {
 }
 .cta:hover {
   transform: translateY(-1px);
-  background: linear-gradient(145deg, rgba(255,255,255,0.28), rgba(255,255,255,0.12));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.12)
+  );
 }
 
 .cta-secondary {
@@ -642,19 +677,18 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.72rem 1.0rem;
+  padding: 0.72rem 1rem;
   font-weight: 900;
-  color: rgba(255,255,255,0.94);
-  background: rgba(0,0,0,0.16);
-  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(10px);
   text-decoration: none;
 }
 
-/* Contador: sube, respira y no queda pegado al bottom */
 .hero__countdown {
   margin-top: 6px;
-  margin-bottom: 22px; /* aire respecto a controls */
+  margin-bottom: 22px;
   display: flex;
   align-items: flex-end;
   gap: 10px;
@@ -663,8 +697,8 @@ onBeforeUnmount(() => {
   max-width: 560px;
   padding: 12px 14px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(12px);
 }
 
@@ -677,7 +711,7 @@ onBeforeUnmount(() => {
 .count-label {
   font-size: 11px;
   font-weight: 900;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .count-value {
@@ -687,9 +721,9 @@ onBeforeUnmount(() => {
   font-weight: 950;
   font-size: 22px;
   line-height: 1;
-  background: rgba(255,255,255,0.96);
-  color: rgba(10,42,82,0.95);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.20);
+  background: rgba(255, 255, 255, 0.96);
+  color: rgba(10, 42, 82, 0.95);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
 
 .sep {
@@ -705,8 +739,8 @@ onBeforeUnmount(() => {
   gap: 0.5rem;
   padding: 0.42rem 0.74rem;
   border-radius: 9999px;
-  background: rgba(255,255,255,0.92);
-  color: rgba(10,42,82,0.95);
+  background: rgba(255, 255, 255, 0.92);
+  color: rgba(10, 42, 82, 0.95);
 }
 .chip-txt {
   font-weight: 950;
@@ -715,13 +749,13 @@ onBeforeUnmount(() => {
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.30rem 0.62rem;
+  padding: 0.3rem 0.62rem;
   border-radius: 9999px;
   font-weight: 950;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   background: rgba(188, 225, 255, 0.95);
-  color: rgba(10,42,82,0.95);
+  color: rgba(10, 42, 82, 0.95);
 }
 
 /* ===== Controls ===== */
@@ -729,7 +763,7 @@ onBeforeUnmount(() => {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 34px; /* un pelín más arriba */
+  bottom: 34px;
   z-index: 3;
   display: flex;
   gap: 12px;
@@ -744,8 +778,8 @@ onBeforeUnmount(() => {
   font-size: 20px;
   line-height: 1;
   color: #fff;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(10px);
   cursor: pointer;
 }
@@ -760,38 +794,36 @@ onBeforeUnmount(() => {
   width: 7px;
   height: 7px;
   border-radius: 9999px;
-  background: rgba(255,255,255,0.35);
-  border: 1px solid rgba(255,255,255,0.30);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: width 180ms ease, background 180ms ease;
   cursor: pointer;
 }
 .dotbtn.active {
   width: 22px;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
 }
 
-/* ===== Mobile adjustments ===== */
 @media (max-width: 1024px) {
   .hero__container {
     max-width: 1200px;
     padding-bottom: 86px;
   }
 
-  /* En mobile, la imagen vuelve a cubrir y se vuelve “ambient” */
   .hero__art {
     left: 0;
     width: 100%;
     opacity: 0.16;
     -webkit-mask-image: none;
-            mask-image: none;
+    mask-image: none;
   }
 
   .hero__scrim {
     background: linear-gradient(
       180deg,
-      rgba(5,45,85,0.86) 0%,
-      rgba(5,45,85,0.66) 62%,
-      rgba(5,45,85,0.46) 100%
+      rgba(5, 45, 85, 0.86) 0%,
+      rgba(5, 45, 85, 0.66) 62%,
+      rgba(5, 45, 85, 0.46) 100%
     );
   }
 
@@ -801,11 +833,15 @@ onBeforeUnmount(() => {
   }
 }
 
-/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .hero__slide { transition: none; }
-  .cta { transition: none; }
-  .dotbtn { transition: none; }
+  .hero__slide {
+    transition: none;
+  }
+  .cta {
+    transition: none;
+  }
+  .dotbtn {
+    transition: none;
+  }
 }
-
 </style>
