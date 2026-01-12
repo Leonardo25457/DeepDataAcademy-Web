@@ -96,12 +96,12 @@
             </span>
           </button>
 
-          <RouterLink
+          <!-- <RouterLink
             to="/cursos"
             class="bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
           >
             Acceder
-          </RouterLink>
+          </RouterLink> -->
         </div>
       </div>
     </div>
