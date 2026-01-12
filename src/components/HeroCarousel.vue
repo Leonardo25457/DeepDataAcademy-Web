@@ -1,7 +1,7 @@
 <!-- src/components/HeroCarousel.vue -->
 <template>
   <section
-    class="hero-gradient relative overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-14 lg:py-24 lg:min-h-[85vh] flex items-start lg:items-center"
+    class="hero-gradient relative overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-14 lg:py-7 lg:min-h-[65vh] flex items-start lg:items-center"
     tabindex="0"
     role="region"
     aria-roledescription="carousel"
