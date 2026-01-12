@@ -1,14 +1,17 @@
 <!-- src/views/Home.vue -->
 <template>
   <main>
+    <!-- <HomeHero /> -->
+    <HeroCarousel />
     <HeroLead />
 
-    <!-- Si luego quieres usar LogoWall, descomenta esta línea y vuelve a importar LogoWall y LogoItem -->
-    <!-- <LogoWall :logos="logos" /> -->
+    <HomeTracks />
+    <HomeTestimonials />
+    <HomeLiveEvents />
+    <HomeResources />
+    <CtaBanner />
 
-    
-
-    <!-- Rutas / Cursos -->
+    <!-- Rutas / Cursos
     <section class="p-14">
       <div class="container">
         <div class="flex flex-wrap items-end justify-between gap-4">
@@ -35,9 +38,9 @@
           />
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Áreas -->
+    <!-- Áreas
     <section id="areas" class="p-14 bg-blue-50/60">
       <div class="container">
         <p class="pill">📚 Áreas de formación</p>
@@ -58,44 +61,12 @@
             </div>
           </article>
 
-          <article class="card">
-            <h3 class="font-semibold text-lg">📊 Data Engineering</h3>
-            <p class="sub">Pipelines, orquestación y modelado</p>
-            <div class="flex flex-wrap items-center gap-3 mt-3">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" alt="Python" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" height="40" alt="MySQL" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40" alt="PostgreSQL" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" width="40" height="40" alt="Apache" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg" width="40" height="40" alt="Airflow" />
-            </div>
-          </article>
-
-          <article class="card">
-            <h3 class="font-semibold text-lg">☁️ Cloud Computing</h3>
-            <p class="sub">Infra, contenedores y Kubernetes</p>
-            <div class="flex flex-wrap items-center gap-3 mt-3">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="80" height="40" alt="AWS" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="40" height="40" alt="Azure" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" width="40" height="40" alt="GCP" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" height="40" alt="Docker" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="40" height="40" alt="K8s" />
-            </div>
-          </article>
-
-          <article class="card">
-            <h3 class="font-semibold text-lg">🔐 Ciberseguridad</h3>
-            <p class="sub">Sistemas, bash y hardening</p>
-            <div class="flex flex-wrap items-center gap-3 mt-3">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40" alt="Linux" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" width="40" height="40" alt="Bash" />
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" width="40" height="40" alt="Debian" />
-            </div>
-          </article>
+          
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Cursos gratuitos -->
+    <!-- Cursos gratuitos
     <section class="py-14">
       <div class="container">
         <p class="pill">Cursos gratuitos</p>
@@ -107,9 +78,9 @@
           <a class="mini-card" href="#"><h4 class="font-semibold">SQL desde cero</h4><span class="sub">Práctico</span></a>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Webinars -->
+    <!-- Webinars
     <section class="py-14 bg-blue-50/60">
       <div class="container">
         <p class="pill">En vivo cada semana</p>
@@ -127,9 +98,9 @@
           <RouterLink class="btn btn-ghost" to="/webinars">Ver todos</RouterLink>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Ebooks -->
+    <!-- Ebooks
     <section class="py-14">
       <div class="container">
         <p class="pill">Recursos</p>
@@ -157,9 +128,9 @@
           </article>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- CTA final -->
+    <!-- CTA final
     <section id="cta" class="py-14">
       <div class="container">
         <div class="cta-band cta-dark">
@@ -174,7 +145,7 @@
           <a class="btn btn-primary" href="#">Comenzar</a>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Widget flotante de asesoría -->
     <AdvisorWidget
@@ -193,4 +164,12 @@ import Countdown from "../components/Countdown.vue";
 import courses from "../data/courses";
 import webinars from "../data/webinars";
 import AdvisorWidget from "../components/AdvisorWidget.vue";
+
+import HomeHero from "../components/HomeHero.vue";
+import HomeTracks from "../components/HomeTracks.vue";
+import HomeTestimonials from "../components/HomeTestimonials.vue";
+import HomeLiveEvents from "../components/HomeLiveEvents.vue";
+import HomeResources from "../components/HomeResources.vue";
+import CtaBanner from "../components/CtaBanner.vue";
+import HeroCarousel from "../components/HeroCarousel.vue";
 </script>

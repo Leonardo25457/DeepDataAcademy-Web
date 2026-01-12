@@ -1,6 +1,16 @@
 /* Tailwind v4 */
 @import "tailwindcss";
 
+/*
+  Tailwind v4: define explícitamente el variant `dark:` para que responda a la clase `.dark`.
+  (Tu toggler añade/quita `.dark` en el elemento <html>.)
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Fuentes a escanear para generar utilities (evita que falten clases en build) */
+@source "../../index.html";
+@source "../**/*.{vue,js,ts,jsx,tsx}";
+
 /* Plugins (v4 se activan desde CSS) */
 @plugin "@tailwindcss/typography";
 
@@ -36,7 +46,8 @@
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 .glass {
-  @apply bg-white/10 border border-white/30 backdrop-blur-md shadow-mdx rounded-xl;
+  @apply bg-white/10 border border-white/30 backdrop-blur-md shadow-mdx rounded-xl
+    dark:bg-slate-950/30 dark:border-white/10;
 }
 .btn {
   @apply inline-flex items-center gap-2 font-bold rounded-full border-2 border-transparent transition px-4 py-2;
@@ -45,25 +56,30 @@
   @apply text-white bg-gradient-to-br from-primary-700 to-primary-900 shadow-mdx hover:shadow-lgx hover:-translate-y-0.5;
 }
 .btn-ghost {
-  @apply bg-white text-primary-900 border-primary-200 hover:bg-primary-200;
+  @apply bg-white text-primary-900 border-primary-200 hover:bg-primary-200
+    dark:bg-slate-900/70 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800;
 }
 .pill {
-  @apply inline-flex items-center gap-2 font-bold text-sm rounded-full px-2.5 py-1 bg-primary-200 text-primary-900;
+  @apply inline-flex items-center gap-2 font-bold text-sm rounded-full px-2.5 py-1 bg-primary-200 text-primary-900
+    dark:bg-blue-500/20 dark:text-blue-200;
 }
 .badge {
-  @apply inline-block text-white border border-white/40 rounded-full px-3 py-1 bg-white/20;
+  @apply inline-block text-white border border-white/40 rounded-full px-3 py-1 bg-white/20
+    dark:border-white/15 dark:bg-white/10;
 }
 .sub {
-  @apply text-textc-700;
+  @apply text-textc-700 dark:text-slate-400;
 }
 .meta {
-  @apply text-sm text-textc-700;
+  @apply text-sm text-textc-700 dark:text-slate-400;
 }
 .card {
-  @apply bg-white border border-blue-100 rounded-xl p-5 shadow-smx hover:shadow-mdx transition hover:-translate-y-1;
+  @apply bg-white border border-blue-100 rounded-xl p-5 shadow-smx hover:shadow-mdx transition hover:-translate-y-1
+    dark:bg-slate-900/60 dark:border-slate-800 dark:text-slate-100;
 }
 .header {
-  @apply sticky top-0 z-50 bg-base-50/85 backdrop-blur border-b border-blue-100;
+  @apply sticky top-0 z-50 bg-base-50/85 backdrop-blur border-b border-blue-100
+    dark:bg-slate-950/70 dark:border-slate-800;
 }
 .hero {
   @apply relative overflow-hidden text-white bg-gradient-to-b from-primary-900 to-primary-700;
@@ -78,13 +94,15 @@
   @apply grid gap-6 md:grid-cols-4;
 }
 .mini-card {
-  @apply flex flex-col gap-1 border border-blue-100 rounded-xl bg-white p-4 no-underline transition hover:-translate-y-0.5 hover:shadow-sm;
+  @apply flex flex-col gap-1 border border-blue-100 rounded-xl bg-white p-4 no-underline transition hover:-translate-y-0.5 hover:shadow-sm
+    dark:bg-slate-900/60 dark:border-slate-800 dark:text-slate-100;
 }
 .cta-band {
   @apply flex flex-wrap items-center justify-between gap-4 rounded-2xl px-6 py-6 shadow-mdx;
 }
 .footer {
-  @apply bg-blue-50/70 border-t border-blue-100 text-textc-700;
+  @apply bg-blue-50/70 border-t border-blue-100 text-textc-700
+    dark:bg-slate-950/60 dark:border-slate-800 dark:text-slate-400;
 }
 /* .cta-dark {
   @apply bg-gradient-to-br from-primary-900 to-primary-700 text-white;

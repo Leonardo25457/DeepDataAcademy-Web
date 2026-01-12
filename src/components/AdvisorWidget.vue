@@ -57,12 +57,8 @@
         >
           <!-- Header -->
           <div class="relative h-[52px] bg-[#1060FF] text-white">
-            <div
-              class="absolute -left-8 -top-8 w-24 h-24 rounded-full bg-white/10"
-            ></div>
-            <div
-              class="absolute left-0 right-0 bottom-0 h-[1px] bg-white/20"
-            ></div>
+            <div class="absolute -left-8 -top-8 w-24 h-24 rounded-full bg-white/10"></div>
+            <div class="absolute left-0 right-0 bottom-0 h-[1px] bg-white/20"></div>
             <div class="relative h-full px-3.5 flex items-center gap-2.5">
               <div
                 class="w-9 h-9 rounded-xl bg-white/20 grid place-items-center ring-1 ring-white/30 font-black"
@@ -86,20 +82,8 @@
                 </p>
               </div>
               <div class="ml-auto flex items-center gap-1">
-                <button
-                  class="icon-btn"
-                  @click="isOpen = false"
-                  aria-label="Minimizar"
-                >
-                  ▾
-                </button>
-                <button
-                  class="icon-btn"
-                  @click="isOpen = false"
-                  aria-label="Cerrar"
-                >
-                  ✕
-                </button>
+                <button class="icon-btn" @click="isOpen = false" aria-label="Minimizar">▾</button>
+                <button class="icon-btn" @click="isOpen = false" aria-label="Cerrar">✕</button>
               </div>
             </div>
           </div>
@@ -118,10 +102,7 @@
                   </p>
                 </div>
 
-                <form
-                  class="mt-3 space-y-2.5"
-                  @submit.prevent="startConversation"
-                >
+                <form class="mt-3 space-y-2.5" @submit.prevent="startConversation">
                   <label class="input-wrap h-10">
                     <svg class="i" viewBox="0 0 24 24" fill="none">
                       <path
@@ -133,10 +114,11 @@
                       />
                     </svg>
                     <input
-                      v-model="form.name"
+                      v-model.trim="form.name"
                       type="text"
                       required
                       placeholder="Ingresa tu nombre completo"
+                      autocomplete="name"
                     />
                   </label>
 
@@ -151,10 +133,11 @@
                       />
                     </svg>
                     <input
-                      v-model="form.email"
+                      v-model.trim="form.email"
                       type="email"
                       required
                       placeholder="Ingresa tu correo electrónico"
+                      autocomplete="email"
                     />
                   </label>
 
@@ -177,6 +160,7 @@
                         <option value="+34">🇪🇸 +34</option>
                       </select>
                     </label>
+
                     <label class="input-wrap h-10 flex-1">
                       <svg class="i" viewBox="0 0 24 24" fill="none">
                         <path
@@ -188,21 +172,30 @@
                         />
                       </svg>
                       <input
-                        v-model="form.phone"
+                        v-model.trim="form.phone"
                         type="tel"
                         inputmode="numeric"
                         placeholder="Tu teléfono"
+                        required
                       />
                     </label>
                   </div>
 
                   <button
                     type="submit"
+                    :disabled="isSubmitting"
                     style="cursor: pointer"
-                    class="w-full h-10 rounded-full px-5 font-bold text-white bg-gradient-to-r from-[#1060FF] via-[#2D7BFF] to-[#4F9DFF] shadow-[0_8px_16px_rgba(16,96,255,.26)] hover:-translate-y-0.5 hover:shadow-[0_12px_18px_rgba(16,96,255,.34)] active:translate-y-[1px] active:shadow-md transition text-[13.5px]"
+                    class="w-full h-10 rounded-full px-5 font-bold text-white bg-gradient-to-r from-[#1060FF] via-[#2D7BFF] to-[#4F9DFF]
+                           shadow-[0_8px_16px_rgba(16,96,255,.26)] hover:-translate-y-0.5 hover:shadow-[0_12px_18px_rgba(16,96,255,.34)]
+                           active:translate-y-[1px] active:shadow-md transition text-[13.5px]
+                           disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Iniciar conversación
+                    {{ isSubmitting ? "Abriendo WhatsApp..." : "Iniciar conversación" }}
                   </button>
+
+                  <p v-if="error" class="text-[11px] text-red-600 mt-2">
+                    {{ error }}
+                  </p>
 
                   <br />
                   <br />
@@ -231,7 +224,7 @@ const props = withDefaults(
     panelWidth?: number;
     panelWidthSm?: number;
     panelHeight?: number;
-    panelHeightSm?: number; 
+    panelHeightSm?: number;
   }>(),
   {
     brand: "DeepData Academy",
@@ -243,14 +236,17 @@ const props = withDefaults(
     bubbleResponsiveBp: 520,
     panelWidth: 310,
     panelWidthSm: 320,
-    panelHeight: 500, // desktop
-    panelHeightSm: 440, // móvil
+    panelHeight: 500,
+    panelHeightSm: 440,
   }
 );
 
 const isOpen = ref(false);
 const isHover = ref(false);
 const isNarrow = ref(false);
+
+const isSubmitting = ref(false);
+const error = ref<string | null>(null);
 
 interface FormState {
   name: string;
@@ -266,25 +262,17 @@ const form = reactive<FormState>({
 });
 
 /* Responsive */
-const currentAvatar = computed(() =>
-  isNarrow.value ? props.avatarSizeSm : props.avatarSize
-);
+const currentAvatar = computed(() => (isNarrow.value ? props.avatarSizeSm : props.avatarSize));
 const avatarPx = computed(() => `${currentAvatar.value}px`);
 
 /* Panel responsive (ANCHO/ALTO) */
-const currentPanelWidth = computed(() =>
-  isNarrow.value ? props.panelWidthSm : props.panelWidth
-);
-const currentPanelHeight = computed(() =>
-  isNarrow.value ? props.panelHeightSm : props.panelHeight
-);
+const currentPanelWidth = computed(() => (isNarrow.value ? props.panelWidthSm : props.panelWidth));
+const currentPanelHeight = computed(() => (isNarrow.value ? props.panelHeightSm : props.panelHeight));
 
 /* Solape y reserva */
 const panelOverlap = computed(() => Math.round(currentAvatar.value * 0.26));
 const panelOverlapPx = computed(() => `${panelOverlap.value}px`);
-const panelBottomReserve = computed(() =>
-  Math.round(currentAvatar.value * 0.4)
-);
+const panelBottomReserve = computed(() => Math.round(currentAvatar.value * 0.4));
 const panelInnerPadStyle = computed(() => ({
   paddingBottom: `${panelBottomReserve.value}px`,
 }));
@@ -301,30 +289,80 @@ const innerScrollStyle = computed(() => ({
 
 /* Globo */
 const bubbleSideStyle = computed(() =>
-  props.position === "right"
-    ? { right: "calc(100% + 10px)" }
-    : { left: "calc(100% + 10px)" }
+  props.position === "right" ? { right: "calc(100% + 10px)" } : { left: "calc(100% + 10px)" }
 );
-const nubClass = computed(() =>
-  props.position === "right" ? "bubble__nub--left" : "bubble__nub--right"
-);
+const nubClass = computed(() => (props.position === "right" ? "bubble__nub--left" : "bubble__nub--right"));
 
 function toggle() {
   isOpen.value = !isOpen.value;
 }
+
+function normalizePhone(country: string, phone: string) {
+  // country: "+51" -> "51"
+  const cc = country.replace(/\D/g, "");
+  const num = phone.replace(/\D/g, "");
+  return `+${cc} ${num}`;
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 function startConversation() {
-  alert("¡Gracias! Te contactaremos pronto 🙌");
+  error.value = null;
+
+  if (!form.name) {
+    error.value = "Ingresa tu nombre.";
+    return;
+  }
+  if (!form.email || !isValidEmail(form.email)) {
+    error.value = "Ingresa un correo válido.";
+    return;
+  }
+  if (!form.phone) {
+    error.value = "Ingresa tu teléfono.";
+    return;
+  }
+
+  isSubmitting.value = true;
+
+  // ✅ Número destino (DeepData) - sin +, sin espacios
+  const WHATSAPP_NUMBER = "51930783601";
+
+  const phonePretty = normalizePhone(form.country, form.phone);
+
+  const message =
+    `Hola, deseo recibir información.\n\n` +
+    `Nombre: ${form.name}\n` +
+    `Email: ${form.email}\n` +
+    `Teléfono: ${phonePretty}\n\n` +
+    `Enviado desde el widget de la web.`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank", "noopener,noreferrer");
+
+  // opcional: cerrar widget
   isOpen.value = false;
+
+  // opcional: limpiar
+  form.name = "";
+  form.email = "";
+  form.phone = "";
+
+  setTimeout(() => {
+    isSubmitting.value = false;
+  }, 350);
 }
 
 /* Detectar móvil/desktop */
 let mm: MediaQueryList | null = null;
 let handler: ((e: MediaQueryListEvent) => void) | null = null;
+
 onMounted(() => {
   mm = window.matchMedia(`(max-width: ${props.bubbleResponsiveBp}px)`);
   const apply = (m: MediaQueryList | MediaQueryListEvent) => {
-    isNarrow.value =
-      (m as MediaQueryList).matches ?? (m as MediaQueryListEvent).matches;
+    isNarrow.value = (m as MediaQueryList).matches ?? (m as MediaQueryListEvent).matches;
   };
   apply(mm);
   handler = (e) => apply(e);

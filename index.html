@@ -1,13 +1,36 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DeepData Academy</title>
+
+    <!-- Aplica tema antes del render (evita que "parpadee" en light) -->
+    <script>
+      (() => {
+        const key = "dda_theme";
+        const saved = localStorage.getItem(key); // "dark" | "light" | null
+        const prefersDark =
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        const shouldDark = saved ? saved === "dark" : prefersDark;
+        if (shouldDark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons Round -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
   </head>
-  <body class="bg-base-50 text-textc-900 font-[Inter]">
+  <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

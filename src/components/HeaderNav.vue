@@ -1,160 +1,114 @@
+<!-- src/components/HeaderNav.vue -->
 <template>
-  <header
-    ref="headerRoot"
-    class="sticky top-0 z-50 bg-[#0a2a52] text-white/90 border-b border-white/10"
+  <nav
+    class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/70 backdrop-blur-md"
   >
-    <div class="mx-auto container grid grid-cols-[auto_1fr_auto] items-center gap-3 h-16">
-      <!-- Izquierda -->
-      <RouterLink to="/" class="flex items-center gap-2 no-underline">
-        <span
-          class="w-9 h-9 rounded-xl text-white grid place-items-center font-extrabold shadow-mdx"
-          style="background: linear-gradient(145deg, #005187, #4d82bc)"
-        >D</span>
-        <span class="font-black tracking-tight text-white">DeepData Academy</span>
-      </RouterLink>
-
-      <!-- Centro -->
-      <nav class="hidden md:flex justify-center items-center gap-1">
-        <!-- Wrapper del botón (hover/focus controlan el estado) -->
-        <div
-          ref="menuWrap"
-          class="relative"
-          @mouseenter="openHover"
-          @mouseleave="closeHover"
-          @focusin="onFocusIn"
-          @focusout="onFocusOut"
-        >
-          <button
-            class="nav-link"
-            @click="toggle"
-            :aria-expanded="menuOpen ? 'true' : 'false'"
-            aria-controls="mega-cursos"
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-20 flex items-center justify-between">
+        <!-- Brand -->
+        <RouterLink to="/" class="flex items-center gap-2">
+          <div
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white font-extrabold flex items-center justify-center shadow-lg shadow-indigo-500/20"
           >
-            Cursos y programas ▾
-          </button>
-        </div>
-
-        <RouterLink class="nav-link" to="/empresas">Empresas ▾</RouterLink>
-        <RouterLink class="nav-link" to="/blog">Blog</RouterLink>
-        <RouterLink class="nav-link" to="/webinars">Webinars</RouterLink>
-        <RouterLink class="nav-link" to="/ebooks">Ebooks</RouterLink>
-        <RouterLink class="nav-link" to="/gratis">Cursos gratis</RouterLink>
-      </nav>
-
-      <!-- Derecha -->
-      <div class="hidden md:flex items-center gap-2">
-        <a class="btn btn-ghost px-3 py-1.5 bg-white/10 text-white border-white/20 hover:bg-white/20" href="#">
-          Iniciar sesión
-        </a>
-        <a class="btn rounded-full px-3 py-1.5 font-extrabold bg-amber-600 hover:bg-amber-700 text-white shadow-mdx" href="#">
-          Regístrate
-        </a>
-      </div>
-
-      <!-- Burger móvil -->
-      <button
-        class="md:hidden border border-white/20 rounded-xl px-2 py-1 bg-white/10 text-white justify-self-end"
-        @click="open = !open"
-        aria-label="Abrir menú"
-      >
-        ☰
-      </button>
-    </div>
-
-    <!-- Mobile -->
-    <div class="md:hidden" v-show="open">
-      <div class="container">
-        <div class="border-t border-white/10"></div>
-        <div class="grid gap-1 py-2">
-          <RouterLink class="mobile-link" to="/cursos" @click="open = false">Cursos y programas</RouterLink>
-          <RouterLink class="mobile-link" to="/empresas" @click="open = false">Empresas</RouterLink>
-          <RouterLink class="mobile-link" to="/blog" @click="open = false">Blog</RouterLink>
-          <RouterLink class="mobile-link" to="/webinars" @click="open = false">Webinars</RouterLink>
-          <RouterLink class="mobile-link" to="/ebooks" @click="open = false">Ebooks</RouterLink>
-          <RouterLink class="mobile-link" to="/gratis" @click="open = false">Cursos gratis</RouterLink>
-          <div class="flex gap-2 pt-2">
-            <a class="btn btn-ghost" href="#">Iniciar sesión</a>
-            <a class="btn btn-primary" href="#">Regístrate</a>
+            D
           </div>
+          <div class="text-xl font-extrabold tracking-tight">
+            DeepData
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500">Academy</span>
+          </div>
+        </RouterLink>
+
+        <!-- Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <!-- ✅ Dropdown mejorado -->
+          <div class="relative group">
+            <button
+              class="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 rounded"
+              aria-haspopup="true"
+            >
+              Cursos y Programas
+              <span class="material-icons-round text-sm">expand_more</span>
+            </button>
+
+            <!-- ✅ Puente invisible para que NO se cierre al cruzar el gap -->
+            <div
+              class="absolute left-0 top-full h-4 w-[600px] hidden group-hover:block group-focus-within:block"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Panel -->
+            <div
+              class="absolute left-0 top-full mt-2 w-[600px] hidden
+                     group-hover:block group-focus-within:block"
+            >
+              <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl grid grid-cols-3 gap-6"
+              >
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4">Especializaciones</h4>
+                  <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Desarrollo de Software</li>
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Cloud Computing</li>
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Data Engineering</li>
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Ciberseguridad</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4">Cursos</h4>
+                  <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Python Pro</li>
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Azure</li>
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">IA Generativa</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4">Gratuitos</h4>
+                  <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Intro a SQL</li>
+                    <li class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer">Git &amp; GitHub</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <RouterLink to="/webinars" class="font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors">
+            Webinars
+          </RouterLink>
+          <RouterLink to="/ebooks" class="font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors">
+            Ebooks
+          </RouterLink>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+          <button
+            class="p-2 rounded-full text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            @click="toggleTheme"
+            aria-label="Cambiar tema"
+            :title="isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
+          >
+            <span class="material-icons-round">
+              {{ isDark ? "light_mode" : "dark_mode" }}
+            </span>
+          </button>
+
+          <RouterLink
+            to="/cursos"
+            class="bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
+          >
+            Acceder
+          </RouterLink>
         </div>
       </div>
     </div>
-
-    <!-- MegaMenu teletransportado (posicionado justo debajo del header) -->
-    <MegaMenu
-      :open="menuOpen"
-      :anchor-el="headerRoot"
-      @menu-enter="openHover"
-      @menu-leave="closeHover"
-      @request-close="menuOpen = false"
-    />
-  </header>
+  </nav>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import MegaMenu from "../components/MegaMenu.vue";
-
-const open = ref(false);
-const menuOpen = ref(false);
-const menuWrap = ref<HTMLElement | null>(null);
-const headerRoot = ref<HTMLElement | null>(null);
-
-let closeTimer: number | null = null;
-const clearCloseTimer = () => { if (closeTimer) { window.clearTimeout(closeTimer); closeTimer = null; } };
-
-const openHover = () => { clearCloseTimer(); menuOpen.value = true; };
-const closeHover = () => { clearCloseTimer(); closeTimer = window.setTimeout(() => (menuOpen.value = false), 120); };
-
-const onFocusIn = () => { clearCloseTimer(); menuOpen.value = true; };
-const onFocusOut = (e: FocusEvent) => {
-  const next = e.relatedTarget as Node | null;
-  if (!menuWrap.value || (next && menuWrap.value.contains(next))) return;
-  closeHover();
-};
-
-const toggle = () => { clearCloseTimer(); menuOpen.value = !menuOpen.value; };
-
-/** Cerrar con click afuera (ignorando clicks dentro del MegaMenu teletransportado) */
-const onDocPointerDown = (e: PointerEvent | MouseEvent) => {
-  const target = e.target as Node;
-  const megaRoot = document.getElementById("mega-root"); // definido en MegaMenu.vue
-  // No cerrar si el click ocurrió dentro del mega
-  if (megaRoot && megaRoot.contains(target)) return;
-  // No cerrar si el click ocurrió dentro del botón/wrapper
-  if (menuWrap.value && menuWrap.value.contains(target)) return;
-  // En cualquier otro caso, cerrar
-  menuOpen.value = false;
-};
-
-/** Cerrar con Esc */
-const onDocKey = (e: KeyboardEvent) => { if (e.key === "Escape") menuOpen.value = false; };
-
-onMounted(() => {
-  document.addEventListener("pointerdown", onDocPointerDown, true);
-  document.addEventListener("keydown", onDocKey);
-});
-onBeforeUnmount(() => {
-  document.removeEventListener("pointerdown", onDocPointerDown, true);
-  document.removeEventListener("keydown", onDocKey);
-});
+import { useTheme } from "../composables/useTheme";
+const { isDark, toggleTheme } = useTheme();
 </script>
-
-<style scoped>
-.nav-link {
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  color: rgba(255, 255, 255, 0.85);
-  transition: background-color 150ms, color 150ms;
-}
-.nav-link:hover { background-color: rgba(255, 255, 255, 0.1); }
-
-.mobile-link {
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-.mobile-link:hover { background-color: rgba(255, 255, 255, 0.1); }
-
-.router-link-active:not(.btn) { color: #fff; }
-</style>
