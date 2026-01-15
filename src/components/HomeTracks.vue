@@ -1162,14 +1162,14 @@ onBeforeUnmount(() => {
 .stream-container {
   position: relative;
   width: 100%;
-  height: 290px;
+  height: 350px;
   display: flex;
   align-items: center;
   overflow: hidden;
   border-radius: 28px;
 
   background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* border: 1px solid rgba(255, 255, 255, 0.08); */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
@@ -1193,7 +1193,7 @@ onBeforeUnmount(() => {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 22;
+  z-index: 18;
   pointer-events: none;
   background: linear-gradient(
     to right,
@@ -1369,7 +1369,7 @@ onBeforeUnmount(() => {
 
 .badge-soft {
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  /* border: 1px solid rgba(255, 255, 255, 0.14); */
 }
 
 /* text */
