@@ -326,7 +326,7 @@ function startConversation() {
 
   isSubmitting.value = true;
 
-  const WHATSAPP_NUMBER = "51930783601";
+  const WHATSAPP_NUMBER = "51970110199";
 
   const phonePretty = normalizePhone(form.country, form.phone);
 

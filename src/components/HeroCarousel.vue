@@ -139,7 +139,7 @@ type Slide = {
   secondaryTo: string;
 };
 
-const WHATSAPP_NUMBER = "51930783601";
+const WHATSAPP_NUMBER = "51970110199";
 
 function buildWhatsappHref(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

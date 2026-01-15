@@ -5,7 +5,7 @@
     <HeroLead />
 
     <HomeTracks />
-    <HomeTestimonials />
+    <!-- <HomeTestimonials /> -->
     <HomeLiveEvents />
     <HomeResources />
     <CtaBanner />
@@ -25,7 +25,7 @@ import HeroLead from "../components/HeroLead.vue";
 import AdvisorWidget from "../components/AdvisorWidget.vue";
 
 import HomeTracks from "../components/HomeTracks.vue";
-import HomeTestimonials from "../components/HomeTestimonials.vue";
+// import HomeTestimonials from "../components/HomeTestimonials.vue";
 import HomeLiveEvents from "../components/HomeLiveEvents.vue";
 import HomeResources from "../components/HomeResources.vue";
 import CtaBanner from "../components/CtaBanner.vue";

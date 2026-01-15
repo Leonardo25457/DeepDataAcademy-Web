@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-const WHATSAPP_NUMBER = "51930783601"; 
+const WHATSAPP_NUMBER = "51970110199"; 
 
 const message = `Hola, ¿Me pueden dar más información?`;
 
