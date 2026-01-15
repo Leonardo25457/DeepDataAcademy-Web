@@ -633,19 +633,19 @@ function onWheel(e: WheelEvent) {
 }
 
 /* Controls */
-function toggleAnimation() {
-  isAnimating.value = !isAnimating.value;
-}
-function resetPosition() {
-  velocity.value = 120;
-  direction.value = -1;
-  isAnimating.value = true;
-  isDragging.value = false;
-  setStartAlignedToScanner();
-}
-function changeDirection() {
-  direction.value *= -1;
-}
+// function toggleAnimation() {
+//   isAnimating.value = !isAnimating.value;
+// }
+// function resetPosition() {
+//   velocity.value = 120;
+//   direction.value = -1;
+//   isAnimating.value = true;
+//   isDragging.value = false;
+//   setStartAlignedToScanner();
+// }
+// function changeDirection() {
+//   direction.value *= -1;
+// }
 
 /* =========================
    CANVAS: background particles
