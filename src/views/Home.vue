@@ -4,10 +4,10 @@
     <HeroCarousel />
     <HeroLead />
 
-    <HomeTracks />
+    <!-- <HomeTracks /> -->
     <!-- <HomeTestimonials /> -->
     <HomeLiveEvents />
-    <HomeResources />
+    <!-- <HomeResources /> -->
     <CtaBanner />
 
     <!-- Widget flotante de asesoría -->
@@ -24,10 +24,10 @@
 import HeroLead from "../components/HeroLead.vue";
 import AdvisorWidget from "../components/AdvisorWidget.vue";
 
-import HomeTracks from "../components/HomeTracks.vue";
+// import HomeTracks from "../components/HomeTracks.vue";
 // import HomeTestimonials from "../components/HomeTestimonials.vue";
 import HomeLiveEvents from "../components/HomeLiveEvents.vue";
-import HomeResources from "../components/HomeResources.vue";
+// import HomeResources from "../components/HomeResources.vue";
 import CtaBanner from "../components/CtaBanner.vue";
 import HeroCarousel from "../components/HeroCarousel.vue";
 </script>

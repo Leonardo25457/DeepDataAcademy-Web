@@ -244,7 +244,7 @@ function preloadAspects() {
 }
 
 /** Autoplay */
-const AUTOPLAY_MS = 8000;
+const AUTOPLAY_MS = 5000;
 let intervalId: number | null = null;
 
 function start() {

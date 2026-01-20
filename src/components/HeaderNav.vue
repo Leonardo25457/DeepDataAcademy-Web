@@ -55,7 +55,7 @@
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                     >
-                      Desarrollo de Software
+                      Desarrollo Web
                     </li>
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
