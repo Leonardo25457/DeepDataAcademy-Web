@@ -11,6 +11,12 @@ const BlogPost      = () => import('../views/BlogPost.vue')
 const B2B           = () => import('../views/B2B.vue')
 const NotFound      = () => import('../views/NotFound.vue')
 
+const SQLMastery = () => import("../views/cursos/SQLMastery.vue");
+const FrontendMastery = () => import("../views/cursos/FrontendMastery.vue");
+const AzureFundamentals = () => import("../views/cursos/AzureFundamentals.vue");
+const PythonDataScience = () => import("../views/cursos/PythonDataScience.vue");
+const LinuxAdmin = () => import("../views/cursos/LinuxAdmin.vue");
+
 export default [
   { path: '/', name: 'home', component: Home },
   { path: '/cursos', name: 'courses', component: Courses },
@@ -21,5 +27,12 @@ export default [
   { path: '/blog', name: 'blog', component: Blog },
   { path: '/blog/:slug', name: 'post', component: BlogPost },
   { path: '/empresas', name: 'b2b', component: B2B },
+
+  { path: "/cursos/SQLMastery", name: "sql-mastery", component: SQLMastery },
+  { path: "/cursos/FrontendMastery", name: "frontend-mastery", component: FrontendMastery },
+  { path: "/cursos/AzureFundamentals", name: "azure-fundamentals", component: AzureFundamentals },
+  { path: "/cursos/PythonDataScience", name: "python-data-science", component: PythonDataScience },
+  { path: "/cursos/LinuxAdmin", name: "linux-admin", component: LinuxAdmin },
+
   { path: '/:pathMatch(.*)*', name: '404', component: NotFound }
 ] as RouteRecordRaw[]

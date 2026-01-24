@@ -52,25 +52,47 @@
                   <ul
                     class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
                   >
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      Desarrollo Web
+                    <li>
+                      <RouterLink
+                        to="/cursos/PythonDataScience"
+                        class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      >
+                        Python Data Science
+                      </RouterLink>
                     </li>
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      Cloud Computing
+
+                    <li>
+                      <RouterLink
+                        to="/cursos/FrontendMastery"
+                        class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      >
+                        Desarrollo Web
+                      </RouterLink>
                     </li>
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      Data Engineering
+
+                    <li>
+                      <RouterLink
+                        to="/cursos/SQLMastery"
+                        class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      >
+                        SQL Mastery
+                      </RouterLink>
                     </li>
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      Ciberseguridad
+                    <li>
+                      <RouterLink
+                        to="/cursos/AzureFundamentals"
+                        class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      >
+                        Azure Fundamentals
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink
+                        to="/cursos/LinuxAdmin"
+                        class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      >
+                        Linux Administration
+                      </RouterLink>
                     </li>
                   </ul>
                 </div>
