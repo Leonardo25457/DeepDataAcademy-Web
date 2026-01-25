@@ -41,12 +41,7 @@
             <span class="material-icons-round text-sm">arrow_forward</span>
           </a>
 
-          <a
-            href="#syllabus"
-            class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-slate-300 dark:border-white/20 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-white font-medium text-base transition backdrop-blur-sm"
-          >
-            Ver Syllabus
-          </a>
+          
         </div>
 
         <!-- Stats -->
@@ -399,8 +394,6 @@
         </div>
       </div>
     </section>
-
-    
   </div>
 </template>
 
