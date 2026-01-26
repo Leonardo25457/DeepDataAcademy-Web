@@ -232,9 +232,9 @@ const current = computed(() => slides[active.value]);
 /** Aspect Ratio por imagen */
 const aspectById = ref<Record<string, string>>({});
 
-const currentAspect = computed(() => {
-  return aspectById.value[current.value.id] ?? "4 / 5";
-});
+// const currentAspect = computed(() => {
+//   return aspectById.value[current.value.id] ?? "4 / 5";
+// });
 
 function preloadAspects() {
   slides.forEach((s) => {
