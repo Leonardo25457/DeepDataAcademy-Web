@@ -3,7 +3,7 @@
   <main>
     <HeroCarousel />
     <HomeEnglishPromo />
-    <HeroLead />
+    <!-- <HeroLead /> -->
 
     <HomeLiveEvents />
     <CtaBanner />
@@ -16,7 +16,7 @@
       title="Asesora Académica"
     />
 
-     <!-- ✅ Modal Promo -->
+     <!-- Modal Promo -->
     <WorkshopPromoModal
       v-model="isPromoOpen"
       :image-src="promoImg"
@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-import HeroLead from "../components/HeroLead.vue";
+// import HeroLead from "../components/HeroLead.vue";
 import AdvisorWidget from "../components/AdvisorWidget.vue";
 
 // import HomeTracks from "../components/HomeTracks.vue";

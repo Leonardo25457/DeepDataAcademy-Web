@@ -28,7 +28,7 @@
               <img
                 :src="leftImage"
                 alt="Estudiante aprendiendo en ambiente cinematográfico"
-                class="absolute inset-0 w-full h-full object-cover brightness-[0.92] contrast-[1.04] saturate-[1.06] dark:brightness-[0.85] dark:contrast-[1.08] dark:saturate-[1.08]"
+                class="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
 
@@ -69,7 +69,7 @@
               </div>
 
               <div class="space-y-6">
-                <!-- ✅ Badge legible en dark SIN volverse negro sólido -->
+                
                 <span
                   class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/25 text-violet-700 dark:bg-violet-300/12 dark:border-violet-200/30 dark:text-violet-100 text-[11px] font-extrabold tracking-[0.18em] uppercase"
                 >
@@ -85,7 +85,7 @@
                   >
                 </h3>
 
-                <!-- ✅ Este párrafo ya no se pierde en dark -->
+                
                 <p
                   class="text-slate-600 dark:text-slate-200 text-base sm:text-lg leading-relaxed"
                 >

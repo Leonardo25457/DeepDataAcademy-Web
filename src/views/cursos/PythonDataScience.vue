@@ -6,18 +6,13 @@
     <section class="relative pt-16 sm:pt-20 pb-10 sm:pb-12 overflow-hidden">
       <!-- Glow (responsive) -->
       <div
-        class="absolute top-0 left-1/2 -translate-x-1/2
-               w-[min(900px,92vw)] h-[520px]
-               bg-emerald-500/20 dark:bg-emerald-500/15
-               blur-[140px] rounded-full pointer-events-none -z-10"
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[min(900px,92vw)] h-[520px] bg-emerald-500/20 dark:bg-emerald-500/15 blur-[140px] rounded-full pointer-events-none -z-10"
       ></div>
 
       <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
         <!-- Title -->
         <h1
-          class="text-balance font-extrabold tracking-tight text-slate-900 dark:text-white
-                 mb-5 sm:mb-6 leading-[1.06]
-                 text-4xl sm:text-5xl md:text-7xl"
+          class="text-balance font-extrabold tracking-tight text-slate-900 dark:text-white mb-5 sm:mb-6 leading-[1.06] text-4xl sm:text-5xl md:text-7xl"
         >
           Maestría en
           <span class="hidden md:block"></span>
@@ -29,8 +24,7 @@
 
         <!-- Subtitle -->
         <p
-          class="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400
-                 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-1"
+          class="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-1"
         >
           El lenguaje más demandado del mundo. Domina el stack moderno de datos:
           <span class="text-slate-900 dark:text-white font-medium">
@@ -42,10 +36,7 @@
         <!-- CTA -->
         <div class="flex items-center justify-center gap-4 mb-12 sm:mb-16">
           <a
-            class="px-7 sm:px-8 py-3.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600
-                   hover:from-violet-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base
-                   transition shadow-lg hover:shadow-glow transform hover:-translate-y-0.5
-                   inline-flex items-center justify-center gap-2"
+            class="px-7 sm:px-8 py-3.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base transition shadow-lg hover:shadow-glow transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
             href="#"
           >
             Inscribirse ahora
@@ -54,25 +45,39 @@
         </div>
 
         <!-- Stats -->
-        <div class="border-y border-slate-200 dark:border-white/10 py-7 sm:py-8">
+        <div
+          class="border-y border-slate-200 dark:border-white/10 py-7 sm:py-8"
+        >
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div class="flex flex-col items-center">
-              <span class="text-3xl font-bold text-slate-900 dark:text-white">12</span>
-              <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1">
+              <span class="text-3xl font-bold text-slate-900 dark:text-white"
+                >12</span
+              >
+              <span
+                class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1"
+              >
                 Semanas
               </span>
             </div>
 
             <div class="flex flex-col items-center">
-              <span class="text-3xl font-bold text-slate-900 dark:text-white">5</span>
-              <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1">
+              <span class="text-3xl font-bold text-slate-900 dark:text-white"
+                >5</span
+              >
+              <span
+                class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1"
+              >
                 Proyectos
               </span>
             </div>
 
             <div class="flex flex-col items-center">
-              <span class="text-3xl font-bold text-slate-900 dark:text-white">1:1</span>
-              <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1">
+              <span class="text-3xl font-bold text-slate-900 dark:text-white"
+                >1:1</span
+              >
+              <span
+                class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1"
+              >
                 Mentoría
               </span>
             </div>
@@ -86,78 +91,85 @@
     <section id="syllabus" class="py-10 sm:py-14 lg:py-20 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- FIX: min-w-0 para evitar overflow raro -->
-        <div class="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start lg:items-center min-w-0">
+        <div
+          class="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start lg:items-center min-w-0"
+        >
           <!-- Left -->
           <div class="min-w-0">
             <div
-              class="inline-block px-3 py-1 mb-4 sm:mb-6 text-[11px] sm:text-xs font-bold tracking-wider
-                     text-emerald-700 dark:text-emerald-400
-                     bg-emerald-100 dark:bg-emerald-500/10
-                     rounded uppercase"
+              class="inline-block px-3 py-1 mb-4 sm:mb-6 text-[11px] sm:text-xs font-bold tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 rounded uppercase"
             >
               Stack Tecnológico Completo
             </div>
 
             <h2
-              class="text-balance text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white
-                     mb-4 sm:mb-6 leading-tight"
+              class="text-balance text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
               Automatiza y escala
               <span class="hidden sm:inline"><br /></span>
-              <span class="title-gradient inline-block">con el poder de Python</span>
+              <span class="title-gradient inline-block"
+                >con el poder de Python</span
+              >
             </h2>
 
-            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-lg mb-5 sm:mb-8 leading-relaxed">
-              Pasa de scripts básicos a arquitecturas de datos robustas. Aprenderás a manipular millones de
-              registros, crear visualizaciones impactantes y construir pipelines de Machine Learning que
-              resuelven problemas reales de negocio.
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm sm:text-lg mb-5 sm:mb-8 leading-relaxed"
+            >
+              Pasa de scripts básicos a arquitecturas de datos robustas.
+              Aprenderás a manipular millones de registros, crear
+              visualizaciones impactantes y construir pipelines de Machine
+              Learning que resuelven problemas reales de negocio.
             </p>
 
             <!-- FIX: cards más compactas en mobile + 1 columna -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div
-                class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0f1016]
-                       border border-slate-200 dark:border-white/10
-                       hover:border-emerald-500/50 dark:hover:border-emerald-500/50
-                       transition group"
+                class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0f1016] border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition group"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 dark:bg-emerald-500/20
-                         flex items-center justify-center text-emerald-700 dark:text-emerald-300
-                         mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-700 dark:text-emerald-300 mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
                 >
-                  <span class="material-icons-round text-[18px] sm:text-[20px]">analytics</span>
+                  <span class="material-icons-round text-[18px] sm:text-[20px]"
+                    >analytics</span
+                  >
                 </div>
 
-                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2">
+                <h3
+                  class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2"
+                >
                   Análisis de Datos
                 </h3>
 
-                <p class="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400">
-                  Domina Pandas y Matplotlib para extraer insights valiosos de datasets complejos.
+                <p
+                  class="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400"
+                >
+                  Domina Pandas y Matplotlib para extraer insights valiosos de
+                  datasets complejos.
                 </p>
               </div>
 
               <div
-                class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0f1016]
-                       border border-slate-200 dark:border-white/10
-                       hover:border-emerald-500/50 dark:hover:border-emerald-500/50
-                       transition group"
+                class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0f1016] border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition group"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 dark:bg-amber-500/20
-                         flex items-center justify-center text-amber-700 dark:text-amber-300
-                         mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 dark:bg-amber-500/20 flex items-center justify-center text-amber-700 dark:text-amber-300 mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
                 >
-                  <span class="material-icons-round text-[18px] sm:text-[20px]">smart_toy</span>
+                  <span class="material-icons-round text-[18px] sm:text-[20px]"
+                    >smart_toy</span
+                  >
                 </div>
 
-                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2">
+                <h3
+                  class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2"
+                >
                   Inteligencia Artificial
                 </h3>
 
-                <p class="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400">
-                  Implementa Machine Learning con Scikit-Learn y despliega soluciones en producción.
+                <p
+                  class="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400"
+                >
+                  Implementa Machine Learning con Scikit-Learn y despliega
+                  soluciones en producción.
                 </p>
               </div>
             </div>
@@ -165,10 +177,11 @@
 
           <!-- Right: Code Window -->
           <!-- FIX: w-full + max-w para mobile, mt para separar de las cards -->
-          <div class="relative group mt-6 sm:mt-8 lg:mt-0 w-full max-w-[520px] lg:max-w-none mx-auto min-w-0">
+          <div
+            class="relative group mt-6 sm:mt-8 lg:mt-0 w-full max-w-[520px] lg:max-w-none mx-auto min-w-0"
+          >
             <div
-              class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl blur
-                     opacity-20 group-hover:opacity-35 transition duration-1000"
+              class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl blur opacity-20 group-hover:opacity-35 transition duration-1000"
             ></div>
 
             <div
@@ -232,10 +245,20 @@
       </div>
     </section>
   </div>
+
+  <!-- Widget flotante de asesoría -->
+  <AdvisorWidget
+    position="right"
+    whatsapp="51999999999"
+    brand="DeepData Academy"
+    title="Asesora Académica"
+  />
+
 </template>
 
 <script setup lang="ts">
 import { useTheme } from "../../composables/useTheme";
+import AdvisorWidget from "../../components/AdvisorWidget.vue";
 useTheme();
 </script>
 
@@ -341,7 +364,7 @@ useTheme();
   -webkit-background-clip: text;
 
   background-image: linear-gradient(to right, #0f766e, #16a34a, #0284c7);
-  filter: drop-shadow(0 10px 26px rgba(2, 132, 199, 0.10));
+  filter: drop-shadow(0 10px 26px rgba(2, 132, 199, 0.1));
 }
 :global(.dark) .title-gradient {
   background-image: linear-gradient(to right, #ffffff, #4ade80, #bef264);

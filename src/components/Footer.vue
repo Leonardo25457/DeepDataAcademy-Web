@@ -1,13 +1,10 @@
 <template>
   <footer
-    class="relative overflow-hidden pt-24 pb-12
-           bg-slate-50 text-slate-700
-           dark:bg-slate-950 dark:text-slate-300"
+    class="relative overflow-hidden pt-24 pb-12 bg-slate-50 text-slate-700 dark:bg-slate-950 dark:text-slate-300"
   >
     <!-- Top gradient line -->
     <div
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1
-             bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50"
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50"
     ></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,14 +18,15 @@
               D
             </div>
             <span
-              class="text-xl font-extrabold tracking-tight
-                     text-slate-900 dark:text-white"
+              class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white"
             >
               DeepData
             </span>
           </RouterLink>
 
-          <p class="text-sm mb-6 leading-relaxed text-slate-600 dark:text-slate-500">
+          <p
+            class="text-sm mb-6 leading-relaxed text-slate-600 dark:text-slate-500"
+          >
             Formando la próxima generación de ingenieros de datos y
             desarrolladores de élite con metodología 100% práctica.
           </p>
@@ -36,10 +34,7 @@
           <div class="flex gap-4">
             <!-- Facebook -->
             <a
-              class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
-                     bg-white border border-slate-200 text-slate-500
-                     hover:bg-indigo-500 hover:text-white hover:border-indigo-500
-                     dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400"
+              class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-white border border-slate-200 text-slate-500 hover:bg-indigo-500 hover:text-white hover:border-indigo-500 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400"
               href="#"
               aria-label="Facebook"
             >
@@ -52,10 +47,7 @@
 
             <!-- LinkedIn -->
             <a
-              class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
-                     bg-white border border-slate-200 text-slate-500
-                     hover:bg-indigo-500 hover:text-white hover:border-indigo-500
-                     dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400"
+              class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-white border border-slate-200 text-slate-500 hover:bg-indigo-500 hover:text-white hover:border-indigo-500 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400"
               href="#"
               aria-label="LinkedIn"
             >
@@ -68,10 +60,7 @@
 
             <!-- YouTube -->
             <a
-              class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
-                     bg-white border border-slate-200 text-slate-500
-                     hover:bg-indigo-500 hover:text-white hover:border-indigo-500
-                     dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400"
+              class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-white border border-slate-200 text-slate-500 hover:bg-indigo-500 hover:text-white hover:border-indigo-500 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400"
               href="#"
               aria-label="YouTube"
             >
@@ -86,26 +75,48 @@
 
         <!-- Programs -->
         <div>
-          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">Programas</h4>
+          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">
+            Programas
+          </h4>
           <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
             <li>
-              <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/cursos">
-                Data Engineer
+              <RouterLink
+                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                to="/cursos/PythonDataScience"
+              >
+                PythonDataScience
               </RouterLink>
             </li>
             <li>
-              <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/cursos">
-                Frontend Developer
+              <RouterLink
+                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                to="/cursos/FrontendMastery"
+              >
+                Desarrollo Web
               </RouterLink>
             </li>
             <li>
-              <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/cursos">
-                Cloud Computing
+              <RouterLink
+                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                to="/cursos/SQLMastery"
+              >
+                SQL Mastery
               </RouterLink>
             </li>
             <li>
-              <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/cursos">
-                Ciberseguridad
+              <RouterLink
+                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                to="/cursos/AzureFundamentals"
+              >
+                Azure Fundamentals
+              </RouterLink>
+            </li>
+            <li>
+              <RouterLink
+                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                to="/cursos/LinuxAdmin"
+              >
+                Linux Administration
               </RouterLink>
             </li>
           </ul>
@@ -113,26 +124,36 @@
 
         <!-- Company -->
         <div>
-          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">Compañía</h4>
+          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">
+            Compañía
+          </h4>
           <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-            <li><a class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" href="#">Sobre nosotros</a></li>
             <li>
+              <a
+                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                href="#"
+                >Sobre nosotros</a
+              >
+            </li>
+            <!-- <li>
               <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/webinars">
                 Webinars
               </RouterLink>
-            </li>
-            <li><a class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" href="#">Bolsa de trabajo</a></li>
+            </li> -->
+            <!-- <li><a class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" href="#">Bolsa de trabajo</a></li>
             <li>
               <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/blog">
                 Blog
               </RouterLink>
-            </li>
+            </li> -->
           </ul>
         </div>
 
         <!-- Newsletter -->
         <div>
-          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">Newsletter</h4>
+          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">
+            Newsletter
+          </h4>
           <p class="text-sm mb-4 text-slate-600 dark:text-slate-400">
             Recibe las últimas noticias y ofertas exclusivas.
           </p>
@@ -140,17 +161,13 @@
           <form class="flex gap-2" @submit.prevent="subscribe">
             <input
               v-model="email"
-              class="w-full rounded-xl px-4 py-2 text-sm transition
-                     bg-white border border-slate-200 text-slate-900 placeholder-slate-400
-                     focus:ring-2 focus:ring-indigo-500 focus:outline-none
-                     dark:bg-slate-900 dark:border-slate-800 dark:text-white dark:placeholder-slate-600"
+              class="w-full rounded-xl px-4 py-2 text-sm transition bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-slate-900 dark:border-slate-800 dark:text-white dark:placeholder-slate-600"
               placeholder="Tu correo"
               type="email"
               required
             />
             <button
-              class="p-2.5 rounded-xl transition-colors
-                     bg-indigo-500 hover:bg-indigo-600 text-white"
+              class="p-2.5 rounded-xl transition-colors bg-indigo-500 hover:bg-indigo-600 text-white"
               type="submit"
               aria-label="Enviar"
             >
@@ -161,15 +178,25 @@
       </div>
 
       <div
-        class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-xs
-               border-slate-200 text-slate-500
-               dark:border-slate-900 dark:text-slate-600"
+        class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-xs border-slate-200 text-slate-500 dark:border-slate-900 dark:text-slate-600"
       >
         <p>© {{ year }} DeepData Academy. Todos los derechos reservados.</p>
         <div class="flex gap-6">
-          <a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Privacidad</a>
-          <a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Términos</a>
-          <a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Cookies</a>
+          <a
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            href="#"
+            >Privacidad</a
+          >
+          <a
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            href="#"
+            >Términos</a
+          >
+          <a
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            href="#"
+            >Cookies</a
+          >
         </div>
       </div>
     </div>

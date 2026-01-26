@@ -24,7 +24,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Comenzar Gratis
+        Unete a nuestra Comunidad
       </a>
     </div>
   </section>

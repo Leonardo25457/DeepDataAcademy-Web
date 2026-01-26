@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-20 flex items-center justify-between">
         <!-- Brand -->
-        <RouterLink to="/" class="flex items-center gap-2">
+        <RouterLink to="/" class="flex items-center gap-2" @click="closeAllMenus">
           <div
             class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white font-extrabold flex items-center justify-center shadow-lg shadow-indigo-500/20"
           >
@@ -22,23 +22,31 @@
 
         <!-- Links (Desktop) -->
         <div class="hidden md:flex items-center gap-8">
-          <div class="relative group">
+          <!-- ✅ Dropdown Desktop controlado por estado -->
+          <div class="relative" @mouseleave="closeDesktopCourses">
             <button
-              class="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 rounded"
+              class="flex items-center cursor-pointer gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2
+                     focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 rounded"
               aria-haspopup="true"
+              :aria-expanded="isDesktopCoursesOpen"
+              @click="toggleDesktopCourses"
             >
               Cursos y Programas
               <span class="material-icons-round text-sm">expand_more</span>
             </button>
 
+            <!-- (Opcional) puente para hover-gap. Con state no es crítico, pero ayuda visualmente -->
             <div
-              class="absolute left-0 top-full h-4 w-[600px] hidden group-hover:block group-focus-within:block"
+              v-show="isDesktopCoursesOpen"
+              class="absolute left-0 top-full h-4 w-[600px]"
               aria-hidden="true"
             ></div>
 
             <!-- Panel -->
             <div
-              class="absolute left-0 top-full mt-2 w-[600px] hidden group-hover:block group-focus-within:block"
+              v-show="isDesktopCoursesOpen"
+              class="absolute left-0 top-full mt-2 w-[600px]"
             >
               <div
                 class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl grid grid-cols-3 gap-6"
@@ -56,6 +64,7 @@
                       <RouterLink
                         to="/cursos/PythonDataScience"
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                        @click="closeAllMenus"
                       >
                         Python Data Science
                       </RouterLink>
@@ -65,6 +74,7 @@
                       <RouterLink
                         to="/cursos/FrontendMastery"
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                        @click="closeAllMenus"
                       >
                         Desarrollo Web
                       </RouterLink>
@@ -74,6 +84,7 @@
                       <RouterLink
                         to="/cursos/SQLMastery"
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                        @click="closeAllMenus"
                       >
                         SQL Mastery
                       </RouterLink>
@@ -83,6 +94,7 @@
                       <RouterLink
                         to="/cursos/AzureFundamentals"
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                        @click="closeAllMenus"
                       >
                         Azure Fundamentals
                       </RouterLink>
@@ -92,6 +104,7 @@
                       <RouterLink
                         to="/cursos/LinuxAdmin"
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                        @click="closeAllMenus"
                       >
                         Linux Administration
                       </RouterLink>
@@ -108,18 +121,22 @@
                   <ul
                     class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
                   >
+                    <!-- Si luego estos serán RouterLink, los cambias y mantienes @click="closeAllMenus" -->
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
                     >
                       Python Pro
                     </li>
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
                     >
                       Azure
                     </li>
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
                     >
                       IA Generativa
                     </li>
@@ -137,11 +154,13 @@
                   >
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
                     >
                       Intro a SQL
                     </li>
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
                     >
                       Git &amp; GitHub
                     </li>
@@ -150,14 +169,13 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- Actions -->
         <div class="flex items-center gap-2 sm:gap-4">
           <!-- Theme -->
           <button
-            class="p-2 rounded-full text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            class="p-2 cursor-pointer rounded-full text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             @click="toggleTheme"
             aria-label="Cambiar tema"
             :title="isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
@@ -201,7 +219,7 @@
             <div
               class="h-20 px-4 sm:px-6 flex items-center justify-between border-b border-slate-200/60 dark:border-slate-800/60"
             >
-              <RouterLink to="/" class="flex items-center gap-2" @click="closeMenu">
+              <RouterLink to="/" class="flex items-center gap-2" @click="closeAllMenus">
                 <div
                   class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white font-extrabold flex items-center justify-center shadow-lg shadow-indigo-500/20"
                 >
@@ -280,7 +298,7 @@
                           <RouterLink
                             to="/cursos/PythonDataScience"
                             class="mobile-link"
-                            @click="closeMenu"
+                            @click="closeAllMenus"
                           >
                             Python Data Science
                           </RouterLink>
@@ -289,7 +307,7 @@
                           <RouterLink
                             to="/cursos/FrontendMastery"
                             class="mobile-link"
-                            @click="closeMenu"
+                            @click="closeAllMenus"
                           >
                             Desarrollo Web
                           </RouterLink>
@@ -298,7 +316,7 @@
                           <RouterLink
                             to="/cursos/SQLMastery"
                             class="mobile-link"
-                            @click="closeMenu"
+                            @click="closeAllMenus"
                           >
                             SQL Mastery
                           </RouterLink>
@@ -307,7 +325,7 @@
                           <RouterLink
                             to="/cursos/AzureFundamentals"
                             class="mobile-link"
-                            @click="closeMenu"
+                            @click="closeAllMenus"
                           >
                             Azure Fundamentals
                           </RouterLink>
@@ -316,7 +334,7 @@
                           <RouterLink
                             to="/cursos/LinuxAdmin"
                             class="mobile-link"
-                            @click="closeMenu"
+                            @click="closeAllMenus"
                           >
                             Linux Administration
                           </RouterLink>
@@ -331,9 +349,9 @@
                         Cursos
                       </h4>
                       <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li><span class="mobile-link cursor-pointer">Python Pro</span></li>
-                        <li><span class="mobile-link cursor-pointer">Azure</span></li>
-                        <li><span class="mobile-link cursor-pointer">IA Generativa</span></li>
+                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Python Pro</span></li>
+                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Azure</span></li>
+                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">IA Generativa</span></li>
                       </ul>
                     </div>
 
@@ -344,15 +362,15 @@
                         Gratuitos
                       </h4>
                       <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li><span class="mobile-link cursor-pointer">Intro a SQL</span></li>
-                        <li><span class="mobile-link cursor-pointer">Git &amp; GitHub</span></li>
+                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Intro a SQL</span></li>
+                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Git &amp; GitHub</span></li>
                       </ul>
                     </div>
                   </div>
                 </transition>
               </div>
 
-              <!-- ❌ Webinars / Ebooks removidos en mobile -->
+              <!-- Webinars / Ebooks removidos en mobile -->
             </div>
           </div>
         </div>
@@ -363,19 +381,35 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount } from "vue";
+import { useRoute } from "vue-router";
 import { useTheme } from "../composables/useTheme";
 
 const { isDark, toggleTheme } = useTheme();
+const route = useRoute();
 
 const isMenuOpen = ref(false);
 const isCoursesOpen = ref(true);
 
+// ✅ Desktop dropdown state
+const isDesktopCoursesOpen = ref(false);
+
+function toggleDesktopCourses() {
+  isDesktopCoursesOpen.value = !isDesktopCoursesOpen.value;
+}
+function closeDesktopCourses() {
+  isDesktopCoursesOpen.value = false;
+}
+
 function openMenu() {
   isMenuOpen.value = true;
 }
-
 function closeMenu() {
   isMenuOpen.value = false;
+}
+
+function closeAllMenus() {
+  closeMenu();
+  closeDesktopCourses();
 }
 
 function lockBodyScroll(locked: boolean) {
@@ -385,8 +419,18 @@ function lockBodyScroll(locked: boolean) {
 
 watch(isMenuOpen, (v) => lockBodyScroll(v));
 
+// ✅ Cierra menús cuando cambia la ruta (click, back/forward, etc.)
+watch(
+  () => route.fullPath,
+  () => {
+    closeAllMenus();
+  }
+);
+
 function onKeydown(e: KeyboardEvent) {
-  if (e.key === "Escape" && isMenuOpen.value) closeMenu();
+  if (e.key === "Escape") {
+    closeAllMenus();
+  }
 }
 
 onMounted(() => window.addEventListener("keydown", onKeydown));

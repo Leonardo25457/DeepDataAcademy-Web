@@ -20,7 +20,8 @@
       <Transition name="fade-slide" mode="out-in">
         <div
           :key="current.id"
-          class="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 items-start lg:items-center"
+          class="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 items-start lg:items-center
+         min-h-[760px] sm:min-h-[820px] lg:min-h-[520px]"
         >
           <!-- Left -->
           <div class="order-1 min-w-0 text-center lg:text-left">
@@ -92,8 +93,10 @@
             ></div>
 
             <div
-              class="relative mx-auto w-full max-w-[320px] sm:max-w-[460px] lg:max-w-none rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10 shadow-2xl transform lg:group-hover:rotate-1 transition-transform duration-500"
-              :style="{ aspectRatio: currentAspect }"
+              class="relative mx-auto w-full max-w-[320px] sm:max-w-[460px] lg:max-w-none
+         rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10
+         shadow-2xl transform lg:group-hover:rotate-1 transition-transform duration-500
+         aspect-[4/5]"
             >
               <img
                 :alt="`Ilustración: ${current.title} ${current.highlight}`"
@@ -159,7 +162,7 @@ const slides: Slide[] = [
       "Hola, quiero inscribirme al workshop: Clona plataformas tipo Crunchyroll. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
-    secondaryTo: "/webinars",
+    secondaryTo: "/cursos/FrontendMastery",
   },
   {
     id: "vision",
@@ -174,7 +177,7 @@ const slides: Slide[] = [
       "Hola, quiero inscribirme al workshop: Visión Artificial con Python • IA en acción. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
-    secondaryTo: "/webinars",
+    secondaryTo: "/cursos/PythonDataScience",
   },
   {
     id: "terminal",
@@ -189,7 +192,7 @@ const slides: Slide[] = [
       "Hola, quiero inscribirme al workshop: Automatiza tu terminal como un PRO. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
-    secondaryTo: "/webinars",
+    secondaryTo: "/cursos/LinuxAdmin",
   },
   {
     id: "azure",
@@ -204,7 +207,7 @@ const slides: Slide[] = [
       "Hola, quiero inscribirme al workshop: Despliega en Azure como en la industria. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
-    secondaryTo: "/webinars",
+    secondaryTo: "/cursos/AzureFundamentals",
   },
   {
     id: "sql",
@@ -219,7 +222,7 @@ const slides: Slide[] = [
       "Hola, quiero inscribirme al workshop: SQL de película: Datos que cuentan historias. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
-    secondaryTo: "/webinars",
+    secondaryTo: "/cursos/SQLMastery",
   },
 ];
 
@@ -244,7 +247,7 @@ function preloadAspects() {
 }
 
 /** Autoplay */
-const AUTOPLAY_MS = 4000;
+const AUTOPLAY_MS = 6000;
 let intervalId: number | null = null;
 
 function start() {

@@ -73,13 +73,6 @@
                 class="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2"
               >
                 <button
-                  class="px-4 py-2.5 rounded-xl cursor-pointer border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 hover:bg-slate-100 dark:hover:bg-slate-800/40 transition text-slate-800 dark:text-slate-100 font-medium"
-                  @click="close"
-                >
-                  Cerrar
-                </button>
-
-                <button
                   v-if="href"
                   type="button"
                   class="px-4 py-2.5 rounded-xl cursor-pointer bg-indigo-600 hover:bg-indigo-500 transition text-white font-semibold text-center"

@@ -40,8 +40,6 @@
             Inscribirse ahora
             <span class="material-icons-round text-sm">arrow_forward</span>
           </a>
-
-          
         </div>
 
         <!-- Stats -->
@@ -395,10 +393,18 @@
       </div>
     </section>
   </div>
+  <!-- Widget flotante de asesoría -->
+  <AdvisorWidget
+    position="right"
+    whatsapp="51999999999"
+    brand="DeepData Academy"
+    title="Asesora Académica"
+  />
 </template>
 
 <script setup lang="ts">
 import { useTheme } from "../../composables/useTheme";
+import AdvisorWidget from "../../components/AdvisorWidget.vue";
 useTheme(); // usa tu gestión global (clase .dark en <html>)
 </script>
 
