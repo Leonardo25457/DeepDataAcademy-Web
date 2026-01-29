@@ -44,11 +44,17 @@ import WorkshopPromoModal from "../components/WorkshopPromoModal.vue";
 import HomeEnglishPromo from "../components/HomeEnglishPromo.vue";
 
 
-const promoImg = "/img/imagen-popup.jpeg";
+const promoImg = "/img/Modal.png";
 const isPromoOpen = ref(false);
 
 
 onMounted(() => {
   isPromoOpen.value = true; 
 });
+
+// onMounted(() => {
+//   const key = "deepdata_workshops_feb_modal_hidden";
+//   const alreadyHidden = localStorage.getItem(key) === "1";
+//   if (!alreadyHidden) isPromoOpen.value = true;
+// });
 </script>

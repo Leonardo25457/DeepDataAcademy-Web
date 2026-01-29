@@ -1,16 +1,12 @@
 <template>
   <section
-    class="hero-gradient relative overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-14 lg:py-7 lg:min-h-[65vh] flex items-start lg:items-center"
+    class="relative overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-14 lg:py-7 lg:min-h-[65vh] flex items-start lg:items-center"
     tabindex="0"
     role="region"
     aria-roledescription="carousel"
     :aria-label="`Carrusel de workshops. Slide ${active + 1} de ${
       slides.length
     }: ${current.title} ${current.highlight}`"
-    @mouseenter="pause"
-    @mouseleave="resume"
-    @focusin="pause"
-    @focusout="resume"
     @keydown.left.prevent="prev(true)"
     @keydown.right.prevent="next(true)"
     @touchstart.passive="onTouchStart"
@@ -20,8 +16,7 @@
       <Transition name="fade-slide" mode="out-in">
         <div
           :key="current.id"
-          class="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 items-start lg:items-center
-         min-h-[760px] sm:min-h-[820px] lg:min-h-[520px]"
+          class="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 items-start lg:items-center min-h-[760px] sm:min-h-[820px] lg:min-h-[520px]"
         >
           <!-- Left -->
           <div class="order-1 min-w-0 text-center lg:text-left">
@@ -93,15 +88,13 @@
             ></div>
 
             <div
-              class="relative mx-auto w-full max-w-[320px] sm:max-w-[460px] lg:max-w-none
-         rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10
-         shadow-2xl transform lg:group-hover:rotate-1 transition-transform duration-500
-         aspect-[4/5]"
+              class="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[420px] xl:max-w-[485px] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10 shadow-2xl transform lg:group-hover:rotate-1 transition-transform duration-500"
+              :style="{ aspectRatio: aspectById[current.id] ?? '4 / 5' }"
             >
               <img
                 :alt="`Ilustración: ${current.title} ${current.highlight}`"
                 :src="current.image"
-                class="absolute inset-0 w-full h-full object-contain select-none scale-[1.02] sm:scale-[1.03]"
+                class="absolute inset-0 w-full h-full object-contain object-center select-none"
                 draggable="false"
               />
             </div>
@@ -155,11 +148,11 @@ const slides: Slide[] = [
     highlight: "tipo Crunchyroll",
     description:
       "Construye una landing y secciones tipo plataforma con UI moderna, responsive y componentes reutilizables utilizando las últimas tecnologías del mercado.",
-    image: "/img/workshop_web.png",
+    image: "/img/Web.png",
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Clona plataformas tipo Crunchyroll. ¿Me brindan información, por favor?"
+      "Hola, quiero inscribirme al workshop: Clona plataformas tipo Crunchyroll. ¿Me brindan información, por favor?",
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/FrontendMastery",
@@ -170,11 +163,11 @@ const slides: Slide[] = [
     highlight: "con Python • IA en acción",
     description:
       "Detecta, clasifica y entiende imágenes con pipelines reales. Modelos, métricas y despliegue práctico.",
-    image: "/img/deteccion_objetos.png",
+    image: "/img/Python.png",
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Visión Artificial con Python • IA en acción. ¿Me brindan información, por favor?"
+      "Hola, quiero inscribirme al workshop: Visión Artificial con Python • IA en acción. ¿Me brindan información, por favor?",
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/PythonDataScience",
@@ -185,11 +178,11 @@ const slides: Slide[] = [
     highlight: "como un PRO",
     description:
       "Domina scripts, productividad y automatización: aliases, pipes, herramientas y flujos que te ahorran horas.",
-    image: "/img/scripts_terminal.png",
+    image: "/img/Linux.png",
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Automatiza tu terminal como un PRO. ¿Me brindan información, por favor?"
+      "Hola, quiero inscribirme al workshop: Automatiza tu terminal como un PRO. ¿Me brindan información, por favor?",
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/LinuxAdmin",
@@ -200,11 +193,11 @@ const slides: Slide[] = [
     highlight: "como en la industria",
     description:
       "CI/CD, contenedores, secretos, observabilidad y buenas prácticas para desplegar como un equipo senior.",
-    image: "/img/workshop_web.png",
+    image: "/img/Python.png",
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Despliega en Azure como en la industria. ¿Me brindan información, por favor?"
+      "Hola, quiero inscribirme al workshop: Despliega en Azure como en la industria. ¿Me brindan información, por favor?",
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/AzureFundamentals",
@@ -215,11 +208,11 @@ const slides: Slide[] = [
     highlight: "Datos que cuentan historias",
     description:
       "Consultas potentes, joins, ventanas, performance y storytelling con datos para análisis que impresionan.",
-    image: "/img/netflix_db.png",
+    image: "/img/SQL.png",
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: SQL de película: Datos que cuentan historias. ¿Me brindan información, por favor?"
+      "Hola, quiero inscribirme al workshop: SQL de película: Datos que cuentan historias. ¿Me brindan información, por favor?",
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/SQLMastery",
@@ -232,10 +225,6 @@ const current = computed(() => slides[active.value]);
 /** Aspect Ratio por imagen */
 const aspectById = ref<Record<string, string>>({});
 
-// const currentAspect = computed(() => {
-//   return aspectById.value[current.value.id] ?? "4 / 5";
-// });
-
 function preloadAspects() {
   slides.forEach((s) => {
     const img = new Image();
@@ -247,7 +236,7 @@ function preloadAspects() {
 }
 
 /** Autoplay */
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 7000;
 let intervalId: number | null = null;
 
 function start() {
@@ -279,7 +268,7 @@ function prev(user = false) {
 function dotClass(i: number) {
   return i === active.value
     ? "w-10 sm:w-12 h-2 rounded-full bg-indigo-500 transition-all"
-    : "w-3 h-2 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-500/50 transition-all";
+    : "w-3 h-2 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-500/50 cursor-pointer transition-all";
 }
 
 /** Swipe */
@@ -312,7 +301,8 @@ onUnmounted(() => {
 
 <style scoped>
 .hero-gradient {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at top right,
       rgba(99, 102, 241, 0.15),
       transparent 40%
@@ -326,7 +316,9 @@ onUnmounted(() => {
 
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition: opacity 320ms ease, transform 320ms ease;
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease;
 }
 .fade-slide-enter-from {
   opacity: 0;

@@ -43,25 +43,10 @@
             </div>
 
             <!-- Body -->
+            <!-- Body -->
             <div class="p-3 sm:p-4">
-              <!-- Imagen -->
-              <a
-                v-if="href"
-                :href="href"
-                target="_blank"
-                rel="noopener"
-                class="block"
-              >
-                <img
-                  :src="imageSrc"
-                  :alt="alt"
-                  class="w-full h-auto rounded-xl border border-slate-200/60 dark:border-slate-800/60"
-                  loading="lazy"
-                />
-              </a>
-
+              <!-- Imagen (sin link) -->
               <img
-                v-else
                 :src="imageSrc"
                 :alt="alt"
                 class="w-full h-auto rounded-xl border border-slate-200/60 dark:border-slate-800/60"
@@ -73,10 +58,9 @@
                 class="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2"
               >
                 <button
-                  v-if="href"
                   type="button"
                   class="px-4 py-2.5 rounded-xl cursor-pointer bg-indigo-600 hover:bg-indigo-500 transition text-white font-semibold text-center"
-                  @click.prevent
+                  @click="goToWebinars"
                 >
                   Ver detalles
                 </button>
@@ -91,23 +75,29 @@
 
 <script setup lang="ts">
 import { computed, watch, onBeforeUnmount } from "vue";
+import { useRouter } from "vue-router";
 
 type Props = {
   modelValue: boolean;
   imageSrc: string;
   alt?: string;
   href?: string;
+
+  storageKey?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   alt: "Flyer de workshops",
   href: "",
+  storageKey: "",
 });
 
 const emit = defineEmits<{
   (e: "update:modelValue", v: boolean): void;
   (e: "closed"): void;
 }>();
+
+const router = useRouter();
 
 const modelValue = computed({
   get: () => props.modelValue,
@@ -119,9 +109,20 @@ function lockBodyScroll(locked: boolean) {
   document.body.style.overflow = locked ? "hidden" : "";
 }
 
+function markHidden() {
+  if (!props.storageKey) return;
+  localStorage.setItem(props.storageKey, "1");
+}
+
 function close() {
   modelValue.value = false;
+  markHidden(); 
   emit("closed");
+}
+
+async function goToWebinars() {
+  close();
+  await router.push("/webinars");
 }
 
 watch(
@@ -130,7 +131,6 @@ watch(
   { immediate: true },
 );
 
-// Asegura liberar scroll si el componente se desmonta mientras estaba abierto
 onBeforeUnmount(() => lockBodyScroll(false));
 </script>
 

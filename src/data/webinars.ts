@@ -19,7 +19,7 @@ const webinars: Webinar[] = [
     badge: "Desarrollo Web",
     tag: "Desarrollo Web",
     image:
-      "/img/web_1.png",
+      "/img/Azure_Work.png",
   },
   {
     id: "sql-fundamentos-joins",
@@ -30,7 +30,7 @@ const webinars: Webinar[] = [
     badge: "SQL",
     tag: "SQL",
     image:
-      "/img/sql_1.png",
+      "/img/SQL_Work.png",
   },
   {
     id: "linux-terminal-scripting",
@@ -41,7 +41,7 @@ const webinars: Webinar[] = [
     badge: "Linux",
     tag: "Linux",
     image:
-      "/img/linux_1.png",
+      "/img/Linux_Work.png",
   },
   {
     id: "python-ml-pipeline",
@@ -52,7 +52,7 @@ const webinars: Webinar[] = [
     badge: "Python & ML",
     tag: "Python & ML",
     image:
-      "/img/python_1.png",
+      "/img/Python_Work.png",
   },
   {
     id: "azure-az900-fundamentals",
@@ -63,7 +63,7 @@ const webinars: Webinar[] = [
     badge: "Azure Fundamentals",
     tag: "Azure Fundamentals",
     image:
-      "/img/azure_1.png",
+      "/img/Azure_Work.png",
   },
 ];
 

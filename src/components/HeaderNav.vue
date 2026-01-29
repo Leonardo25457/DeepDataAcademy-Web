@@ -5,18 +5,27 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-20 flex items-center justify-between">
         <!-- Brand -->
-        <RouterLink to="/" class="flex items-center gap-2" @click="closeAllMenus">
-          <div
-            class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white font-extrabold flex items-center justify-center shadow-lg shadow-indigo-500/20"
-          >
-            D
-          </div>
-          <div class="text-xl font-extrabold tracking-tight">
-            DeepData
+        <RouterLink
+          to="/"
+          class="flex items-center gap-3"
+          @click="closeAllMenus"
+        >
+          <!-- Logo -->
+          <img
+            src="/img/Icon_academy.png"
+            alt="StackLab Academy"
+            class="h-10 w-10 rounded-xl object-contain shadow-lg shadow-indigo-500/20"
+            draggable="false"
+          />
+
+          <!-- Texto -->
+          <div class="text-xl font-extrabold tracking-tight leading-none">
+            <span class="text-slate-900 dark:text-white">StackLab</span>
             <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500"
-              >Academy</span
+              class="ml-1 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500"
             >
+              Academy
+            </span>
           </div>
         </RouterLink>
 
@@ -25,9 +34,7 @@
           <!-- ✅ Dropdown Desktop controlado por estado -->
           <div class="relative" @mouseleave="closeDesktopCourses">
             <button
-              class="flex items-center cursor-pointer gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2
-                     focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 rounded"
+              class="flex items-center cursor-pointer gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 rounded"
               aria-haspopup="true"
               :aria-expanded="isDesktopCoursesOpen"
               @click="toggleDesktopCourses"
@@ -112,7 +119,7 @@
                   </ul>
                 </div>
 
-                <div>
+                <!-- <div>
                   <h4
                     class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4"
                   >
@@ -121,7 +128,7 @@
                   <ul
                     class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
                   >
-                    <!-- Si luego estos serán RouterLink, los cambias y mantienes @click="closeAllMenus" -->
+                    
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                       @click="closeAllMenus"
@@ -141,9 +148,9 @@
                       IA Generativa
                     </li>
                   </ul>
-                </div>
+                </div> -->
 
-                <div>
+                <!-- <div>
                   <h4
                     class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4"
                   >
@@ -165,7 +172,8 @@
                       Git &amp; GitHub
                     </li>
                   </ul>
-                </div>
+                </div> -->
+
               </div>
             </div>
           </div>
@@ -219,20 +227,25 @@
             <div
               class="h-20 px-4 sm:px-6 flex items-center justify-between border-b border-slate-200/60 dark:border-slate-800/60"
             >
-              <RouterLink to="/" class="flex items-center gap-2" @click="closeAllMenus">
-                <div
-                  class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white font-extrabold flex items-center justify-center shadow-lg shadow-indigo-500/20"
-                >
-                  D
-                </div>
-                <div
-                  class="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white"
-                >
-                  DeepData
+              <RouterLink
+                to="/"
+                class="flex items-center gap-3"
+                @click="closeAllMenus"
+              >
+                <img
+                  src="/img/Icon_academy.png"
+                  alt="StackLab Academy"
+                  class="h-9 w-9 rounded-xl object-contain shadow-lg shadow-indigo-500/20"
+                  draggable="false"
+                />
+
+                <div class="text-lg font-extrabold tracking-tight leading-none">
+                  <span class="text-slate-900 dark:text-white">StackLab</span>
                   <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500"
-                    >Academy</span
+                    class="ml-1 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500"
                   >
+                    Academy
+                  </span>
                 </div>
               </RouterLink>
 
@@ -271,12 +284,16 @@
                   aria-controls="mobile-courses-panel"
                 >
                   <div class="flex items-center gap-2">
-                    <span class="material-icons-round text-indigo-500">school</span>
+                    <span class="material-icons-round text-indigo-500"
+                      >school</span
+                    >
                     <span class="font-semibold text-slate-900 dark:text-white"
                       >Cursos y Programas</span
                     >
                   </div>
-                  <span class="material-icons-round text-slate-500 dark:text-slate-400">
+                  <span
+                    class="material-icons-round text-slate-500 dark:text-slate-400"
+                  >
                     {{ isCoursesOpen ? "expand_less" : "expand_more" }}
                   </span>
                 </button>
@@ -293,7 +310,9 @@
                       >
                         Especializaciones
                       </h4>
-                      <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                      <ul
+                        class="space-y-2 text-sm text-slate-700 dark:text-slate-300"
+                      >
                         <li>
                           <RouterLink
                             to="/cursos/PythonDataScience"
@@ -342,30 +361,64 @@
                       </ul>
                     </div>
 
-                    <div class="pt-6">
+                    <!-- <div class="pt-6">
                       <h4
                         class="text-[11px] font-bold uppercase tracking-wider text-indigo-500 mb-3"
                       >
                         Cursos
                       </h4>
-                      <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Python Pro</span></li>
-                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Azure</span></li>
-                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">IA Generativa</span></li>
+                      <ul
+                        class="space-y-2 text-sm text-slate-700 dark:text-slate-300"
+                      >
+                        <li>
+                          <span
+                            class="mobile-link cursor-pointer"
+                            @click="closeAllMenus"
+                            >Python Pro</span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            class="mobile-link cursor-pointer"
+                            @click="closeAllMenus"
+                            >Azure</span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            class="mobile-link cursor-pointer"
+                            @click="closeAllMenus"
+                            >IA Generativa</span
+                          >
+                        </li>
                       </ul>
-                    </div>
+                    </div> -->
 
-                    <div class="pt-6">
+                    <!-- <div class="pt-6">
                       <h4
                         class="text-[11px] font-bold uppercase tracking-wider text-indigo-500 mb-3"
                       >
                         Gratuitos
                       </h4>
-                      <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Intro a SQL</span></li>
-                        <li><span class="mobile-link cursor-pointer" @click="closeAllMenus">Git &amp; GitHub</span></li>
+                      <ul
+                        class="space-y-2 text-sm text-slate-700 dark:text-slate-300"
+                      >
+                        <li>
+                          <span
+                            class="mobile-link cursor-pointer"
+                            @click="closeAllMenus"
+                            >Intro a SQL</span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            class="mobile-link cursor-pointer"
+                            @click="closeAllMenus"
+                            >Git &amp; GitHub</span
+                          >
+                        </li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                 </transition>
               </div>
@@ -424,7 +477,7 @@ watch(
   () => route.fullPath,
   () => {
     closeAllMenus();
-  }
+  },
 );
 
 function onKeydown(e: KeyboardEvent) {
@@ -443,7 +496,9 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
   display: block;
   padding: 0.65rem 0.75rem;
   border-radius: 0.75rem;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 .mobile-link:hover {
   background: rgba(99, 102, 241, 0.12);
@@ -467,7 +522,9 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
 /* Collapse transition */
 .collapse-enter-active,
 .collapse-leave-active {
-  transition: max-height 0.22s ease, opacity 0.22s ease;
+  transition:
+    max-height 0.22s ease,
+    opacity 0.22s ease;
 }
 .collapse-enter-from,
 .collapse-leave-to {

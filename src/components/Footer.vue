@@ -1,3 +1,4 @@
+<!-- src/components/Footer.vue -->
 <template>
   <footer
     class="relative overflow-hidden pt-24 pb-12 bg-slate-50 text-slate-700 dark:bg-slate-950 dark:text-slate-300"
@@ -8,21 +9,32 @@
     ></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-4 gap-12 mb-16">
+      <!-- ✅ 3 columnas balanceadas -->
+      <div class="grid gap-12 mb-16 lg:grid-cols-3">
         <!-- Brand -->
-        <div class="lg:col-span-1">
-          <RouterLink to="/" class="flex items-center gap-2 mb-6">
-            <div
-              class="w-8 h-8 bg-indigo-500 rounded flex items-center justify-center text-white font-bold text-sm"
-            >
-              D
-            </div>
-            <span
-              class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white"
-            >
-              DeepData
-            </span>
-          </RouterLink>
+        <div>
+
+          <div class="mb-4">
+            <RouterLink to="/" class="flex items-center gap-3">
+              <!-- Logo -->
+              <img
+                src="/img/Icon_academy.png"
+                alt="StackLab Academy"
+                class="h-10 w-10 rounded-xl object-contain shadow-lg shadow-indigo-500/20"
+                draggable="false"
+              />
+
+              <!-- Texto -->
+              <div class="text-xl font-extrabold tracking-tight leading-none">
+                <span class="text-slate-900 dark:text-white">StackLab</span>
+                <span
+                  class="ml-1 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500"
+                >
+                  Academy
+                </span>
+              </div>
+            </RouterLink>
+          </div>
 
           <p
             class="text-sm mb-6 leading-relaxed text-slate-600 dark:text-slate-500"
@@ -129,58 +141,26 @@
           </h4>
           <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
             <li>
-              <a
+              <!-- <a class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" href="#">
+                Sobre nosotros
+              </a> -->
+              <RouterLink
                 class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
-                href="#"
-                >Sobre nosotros</a
+                to="/nosotros"
               >
+                Sobre Nosotros
+              </RouterLink>
             </li>
-            <!-- <li>
-              <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/webinars">
-                Webinars
-              </RouterLink>
-            </li> -->
-            <!-- <li><a class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" href="#">Bolsa de trabajo</a></li>
-            <li>
-              <RouterLink class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" to="/blog">
-                Blog
-              </RouterLink>
-            </li> -->
           </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div>
-          <h4 class="font-bold mb-6 text-slate-900 dark:text-white">
-            Newsletter
-          </h4>
-          <p class="text-sm mb-4 text-slate-600 dark:text-slate-400">
-            Recibe las últimas noticias y ofertas exclusivas.
-          </p>
-
-          <form class="flex gap-2" @submit.prevent="subscribe">
-            <input
-              v-model="email"
-              class="w-full rounded-xl px-4 py-2 text-sm transition bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-slate-900 dark:border-slate-800 dark:text-white dark:placeholder-slate-600"
-              placeholder="Tu correo"
-              type="email"
-              required
-            />
-            <button
-              class="p-2.5 rounded-xl transition-colors bg-indigo-500 hover:bg-indigo-600 text-white"
-              type="submit"
-              aria-label="Enviar"
-            >
-              <span class="material-icons-round text-sm">send</span>
-            </button>
-          </form>
         </div>
       </div>
 
+      <!-- Bottom bar -->
       <div
         class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-xs border-slate-200 text-slate-500 dark:border-slate-900 dark:text-slate-600"
       >
         <p>© {{ year }} DeepData Academy. Todos los derechos reservados.</p>
+
         <div class="flex gap-6">
           <a
             class="hover:text-slate-900 dark:hover:text-white transition-colors"
@@ -204,13 +184,5 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 const year = new Date().getFullYear();
-const email = ref("");
-
-function subscribe() {
-  console.log("newsletter:", email.value);
-  email.value = "";
-}
 </script>

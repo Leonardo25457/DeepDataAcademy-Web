@@ -1,111 +1,313 @@
 <template>
   <section
-    class="py-24 relative bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800/50"
+    class="py-24 relative isolate overflow-hidden border-t transition-colors duration-300
+         bg-white/30 dark:bg-white/0 backdrop-blur-[2px]
+         border-slate-200 dark:border-slate-800/50"
   >
+    <!-- Blobs / glow background -->
+    <div
+      class="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl -z-10 pointer-events-none
+             bg-indigo-500/10 dark:bg-purple-900/20 mix-blend-multiply dark:mix-blend-screen"
+    />
+    <div
+      class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl -z-10 pointer-events-none
+             bg-sky-500/10 dark:bg-blue-900/20 mix-blend-multiply dark:mix-blend-screen"
+    />
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span
-          class="bg-indigo-500/10 text-indigo-500 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest inline-block mb-4"
-        >
-          Agenda Semanal
-        </span>
-        <h2
-          class="text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900 dark:text-white"
-        >
-          Eventos en Vivo
+      <!-- Header -->
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+          <span class="text-gradient">Descubre Nuestros Webinars </span>
         </h2>
-        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Sesiones interactivas exclusivas para profundizar tus conocimientos.
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300/80">
+          Accede a especializaciones diseñadas para impulsar tu carrera.
+          Elige el camino que más se adapte a ti y empieza hoy.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Top row (3) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
         <article
-          v-for="e in events"
-          :key="e.title"
-          class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300"
+          v-for="c in topCourses"
+          :key="c.title"
+          class="card-container group relative rounded-2xl overflow-hidden h-[420px] shadow-xl
+                 bg-white border border-slate-200
+                 dark:bg-slate-950/60 dark:border-slate-800"
         >
-          <div class="aspect-video relative overflow-hidden">
+          <div class="glow-effect absolute inset-0 rounded-2xl"></div>
+
+          <!-- Image -->
+          <div class="absolute inset-0">
             <img
-              :alt="e.title"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              :src="e.image"
+              :alt="c.alt"
+              :src="c.image"
+              class="w-full h-full object-cover
+                     opacity-95 dark:opacity-90
+                     group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-6"
-            >
-              <span
-                class="bg-indigo-500/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide"
-              >
-                {{ e.badge }}
-              </span>
-            </div>
+
+            <!-- ✅ Overlay SUAVE global (para contraste mínimo, NO tapa logos) -->
+            <div class="absolute inset-0 soft-overlay" />
+
+            <!-- ✅ Banda inferior: aquí va la legibilidad del texto (SIN tapar el centro) -->
+            <div class="absolute inset-0 bottom-band" />
           </div>
 
-          <div class="p-6">
-            <h3 class="text-lg font-bold mb-4 dark:text-white">
-              {{ e.title }}
-            </h3>
+          <!-- Content: pegado abajo -->
+          <div class="relative z-10 h-full p-6 sm:p-7 lg:p-8">
+            <div class="h-full flex flex-col justify-end">
+              <div class="caption-box">
+                <h3 class="caption-title">
+                  <span class="block line-clamp-2">{{ c.title }}</span>
+                </h3>
 
-            <CountdownGridV2 :target="e.target" />
+                <p class="caption-desc">
+                  <span class="block line-clamp-3">{{ c.description }}</span>
+                </p>
 
-            <RouterLink
-              class="w-full inline-flex justify-center bg-slate-900 dark:bg-indigo-500 text-white py-3.5 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-indigo-600 transition-colors text-sm"
-              :to="{ path: '/', hash: '#lead-form' }"
-            >
-              Registrarme Gratis
-            </RouterLink>
+                <RouterLink :to="c.to" class="btn-cta">
+                  Ver 
+                </RouterLink>
+              </div>
+            </div>
           </div>
         </article>
       </div>
 
-      <div class="mt-12 text-center">
-        <RouterLink
-          to="/webinars"
-          class="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors dark:text-white inline-flex"
+      <!-- Bottom row (2 centered) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:w-2/3 mx-auto gap-8">
+        <article
+          v-for="c in bottomCourses"
+          :key="c.title"
+          class="card-container group relative rounded-2xl overflow-hidden h-[420px] shadow-xl
+                 bg-white border border-slate-200
+                 dark:bg-slate-950/60 dark:border-slate-800"
         >
-          Ver calendario completo
-        </RouterLink>
+          <div class="glow-effect absolute inset-0 rounded-2xl"></div>
+
+          <div class="absolute inset-0">
+            <img
+              :alt="c.alt"
+              :src="c.image"
+              class="w-full h-full object-cover
+                     opacity-95 dark:opacity-90
+                     group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+
+            <div class="absolute inset-0 soft-overlay" />
+            <div class="absolute inset-0 bottom-band" />
+          </div>
+
+          <div class="relative z-10 h-full p-6 sm:p-7 lg:p-8">
+            <div class="h-full flex flex-col justify-end">
+              <div class="caption-box">
+                <h3 class="caption-title">
+                  <span class="block line-clamp-2">{{ c.title }}</span>
+                </h3>
+
+                <p class="caption-desc">
+                  <span class="block line-clamp-3">{{ c.description }}</span>
+                </p>
+
+                <RouterLink :to="c.to" class="btn-cta">
+                  Ver
+                </RouterLink>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import CountdownGridV2 from "./CountdownGrid.vue";
-
-type EventCard = {
+type CourseCard = {
   title: string;
-  badge: string;
+  description: string;
   image: string;
-  target: string;
+  alt: string;
   to: string;
 };
 
-const events: EventCard[] = [
+const courses: CourseCard[] = [
   {
-    title: "Power BI vs Excel: Análisis avanzado de datos",
-    badge: "Próximo martes",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC0Y1QT4TJvFZ0KkDWB3etvJpncsY2d8ZAJFm1AMP15VzB4kQFzJbKm7WIoj3Ctl6o6UthxemdDNCfyBNrnArxd18opoVyatXIfHhrDW3E52uBUTxPCmRCBdmeTLHcX77ALQnHntn2cx5y7uAoz4E2v4ISkwERNfh-mu3xpdKVbX7F_DQvfFWujoxh6QYaFqfeyauz6_3KMmMx-QtBUkO72njzfJDPoTM21HBeJoPY1MMKSpvV2_rKkdSnOpO5EC2-3iAHB--P2Nw",
-    target: "2026-01-20T19:00:00-05:00",
+    title: "Python Data Science",
+    description:
+      "Domina Python aplicado a análisis y ciencia de datos: ETL, visualización y fundamentos de ML.",
+    image: "/img/Python_Work.png",
+    alt: "Python Data Science",
     to: "/webinars",
   },
   {
-    title: "Prompt Engineering para analistas de datos",
-    badge: "Sábado especial",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDqXImbVqBXSc5Op5OkARU8qjMgp0GsJtKN5s1AT9g18jZWX7wIATfTBuo9QNUi8GY-RKFeF3ceEFVwvTOJx_SlFgU3uKDOaKdoIWrTcPKNLuasi8Jdk6GiHUIcBQtzihCYucZcVJAKgFUA5ezc13tw1qePzyMXnXve731vL9FjWF7uBG_kk2H3lA0byylcn2tf_AjTQhuhBCeYlkYIz4lJ8hU_wtl7tJyK3nq_slPHVtaK0_XMkkDO1-1QK93uhWFslCPnWuzF_Q",
-    target: "2026-01-24T10:00:00-05:00",
+    title: "Desarrollo Web",
+    description:
+      "Construye interfaces modernas y responsive con buenas prácticas, componentes y despliegue.",
+    image: "/img/Web.png",
+    alt: "Desarrollo Web",
     to: "/webinars",
   },
   {
-    title: "Pipeline E2E: De SQL a Machine Learning",
-    badge: "Próximo jueves",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCOcOigk9zjX0uhAo8f4ALf7em1cg-Gox-2Ym8cmcSDHeHOK7DWOdmVdwqiJHuwCDUEg0-gVvTWRlBut3shid2ggccwNY4CV60LXYjSbAukin-LFkWgxyZGUQSfo5iYDyGImPhxTCGqsuPb63j4kQu6IChCraFXjEbTjA6iOZyXOb9LtSpOQcnfNNoe6f3ustmb-Ncj0IFktRLeYFXqiYOOVF8dHSeCXMoU19s0YV3G_rOjStyegHWC4b-Sn15PETZjJMjju54r4A",
-    target: "2026-01-29T19:00:00-05:00",
+    title: "SQL Mastery",
+    description:
+      "Aprende SQL desde cero a avanzado: consultas, modelado, optimización y análisis con datos reales.",
+    image: "/img/SQL_Work.png",
+    alt: "SQL Mastery",
+    to: "/webinars",
+  },
+  {
+    title: "Azure Fundamentals",
+    description:
+      "Empieza en cloud con Azure: servicios clave, identidad, recursos y buenas prácticas.",
+    image: "/img/Azure_Work.png",
+    alt: "Azure Fundamentals",
+    to: "/webinars",
+  },
+  {
+    title: "Linux Administration",
+    description:
+      "Administra Linux como pro: terminal, usuarios, permisos, servicios, redes y automatización.",
+    image: "/img/Linux_Work.png",
+    alt: "Linux Administration",
     to: "/webinars",
   },
 ];
+
+const topCourses = courses.slice(0, 3);
+const bottomCourses = courses.slice(3);
 </script>
+
+<style scoped>
+/* Título gradiente */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #4f46e5, #7c3aed, #2563eb);
+}
+:global(.dark) .text-gradient {
+  background-image: linear-gradient(to right, #818cf8, #a78bfa, #60a5fa);
+}
+
+/* Glow effect */
+.glow-effect::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(99, 102, 241, 0.55),
+    transparent,
+    rgba(59, 130, 246, 0.55)
+  );
+  z-index: -1;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card-container:hover .glow-effect::before {
+  opacity: 0.55;
+}
+
+/* ✅ Overlay suave global: NO mata logos/texto de la imagen */
+.soft-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.05),
+    rgba(2, 6, 23, 0.10)
+  );
+}
+:global(.dark) .soft-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.10),
+    rgba(0, 0, 0, 0.22)
+  );
+}
+
+/* ✅ Banda inferior: aquí garantizamos lectura */
+.bottom-band {
+  background: linear-gradient(
+    to top,
+    rgba(2, 6, 23, 0.92) 0%,
+    rgba(2, 6, 23, 0.65) 28%,
+    rgba(2, 6, 23, 0.18) 62%,
+    rgba(2, 6, 23, 0.00) 100%
+  );
+}
+:global(.dark) .bottom-band {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.70) 30%,
+    rgba(0, 0, 0, 0.20) 65%,
+    rgba(0, 0, 0, 0.00) 100%
+  );
+}
+
+/* Caption box (abajo) */
+.caption-box {
+  border-radius: 1.25rem;
+  padding: 1.1rem 1.15rem;
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(2px);
+}
+:global(.dark) .caption-box {
+  background: rgba(0, 0, 0, 0.10);
+}
+
+/* Tipografía */
+.caption-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: white;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+@media (min-width: 640px) {
+  .caption-title {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .caption-title {
+    font-size: 2rem;
+  }
+}
+
+.caption-desc {
+  margin-top: 0.65rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  min-height: 72px; /* alinea cards */
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Botón */
+.btn-cta {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  border-radius: 0.95rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  background-image: linear-gradient(to right, #4f6cf7, #3b82f6);
+  box-shadow: 0 18px 35px rgba(79, 108, 247, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px rgba(79, 108, 247, 0.35);
+  background-image: linear-gradient(to right, #3f55f0, #2563eb);
+}
+</style>

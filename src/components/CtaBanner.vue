@@ -1,9 +1,10 @@
 <template>
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-20 relative z-20">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-20 relative z-20 transition-colors duration-300">
     <div
       class="bg-gradient-to-r from-indigo-500 via-indigo-600 to-violet-500 p-12 rounded-[2.5rem]
-             shadow-2xl shadow-indigo-500/30 flex flex-col md:flex-row items-center justify-between
-             gap-8 border border-white/10 relative overflow-hidden"
+         shadow-2xl shadow-indigo-500/30 dark:shadow-indigo-500/20
+         flex flex-col md:flex-row items-center justify-between
+         gap-8 border border-white/10 relative overflow-hidden"
     >
       <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
       <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>

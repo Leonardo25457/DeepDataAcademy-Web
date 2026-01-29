@@ -33,7 +33,7 @@
             <div class="aspect-video relative overflow-hidden">
               <img
                 :alt="w.title"
-                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 :src="w.image"
               />
               <div

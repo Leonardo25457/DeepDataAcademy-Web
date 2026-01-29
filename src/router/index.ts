@@ -10,6 +10,7 @@ const Blog          = () => import('../views/Blog.vue')
 const BlogPost      = () => import('../views/BlogPost.vue')
 const B2B           = () => import('../views/B2B.vue')
 const NotFound      = () => import('../views/NotFound.vue')
+const About         = () => import('../views/About.vue')
 
 const SQLMastery = () => import("../views/cursos/SQLMastery.vue");
 const FrontendMastery = () => import("../views/cursos/FrontendMastery.vue");
@@ -27,6 +28,7 @@ export default [
   { path: '/blog', name: 'blog', component: Blog },
   { path: '/blog/:slug', name: 'post', component: BlogPost },
   { path: '/empresas', name: 'b2b', component: B2B },
+  { path: '/nosotros', name: 'about', component: About },
 
   { path: "/cursos/SQLMastery", name: "sql-mastery", component: SQLMastery },
   { path: "/cursos/FrontendMastery", name: "frontend-mastery", component: FrontendMastery },

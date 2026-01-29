@@ -32,14 +32,26 @@
           >.
         </p>
 
-        <!-- CTA (1 botón) -->
-        <div class="flex items-center justify-center mb-10 sm:mb-16">
+        <!-- CTA -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+        >
+          <!-- CTA 1 -->
           <a
-            class="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base transition shadow-lg hover:shadow-glow transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
             href="#"
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-semibold text-base transition shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
             Inscribirse ahora
             <span class="material-icons-round text-sm">arrow_forward</span>
+          </a>
+
+          <!-- CTA 2 -->
+          <a
+            href="#"
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/80 hover:bg-white dark:bg-white/10 dark:hover:bg-white/15 text-slate-900 dark:text-white font-semibold text-base transition border border-slate-200 dark:border-white/15 shadow-lg shadow-slate-900/5 dark:shadow-sky-500/10 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 backdrop-blur"
+          >
+            Descargar Brochure
+            <span class="material-icons-round text-sm">download</span>
           </a>
         </div>
 
