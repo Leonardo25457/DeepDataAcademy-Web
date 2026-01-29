@@ -247,12 +247,6 @@ function stop() {
   if (intervalId != null) window.clearInterval(intervalId);
   intervalId = null;
 }
-function pause() {
-  stop();
-}
-function resume() {
-  start();
-}
 
 function go(i: number, user = false) {
   active.value = (i + slides.length) % slides.length;
