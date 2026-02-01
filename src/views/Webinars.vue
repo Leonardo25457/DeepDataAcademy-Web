@@ -69,12 +69,13 @@
                   <CountdownStrip :target="w.start" />
                 </div>
 
-                <RouterLink
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScwn8qtg8XlVuCaSPOTrVaxnrhzPdYa_HUYBfE7tkMqFtSbwg/viewform"
+                  rel="noopener noreferrer"
                   class="mt-5 w-full inline-flex justify-center bg-slate-900 dark:bg-indigo-500 text-white py-3.5 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-indigo-600 transition-colors text-sm"
-                  :to="`/webinar/${w.id}`"
                 >
                   Registrarme Gratis
-                </RouterLink>
+                </a>
               </div>
             </div>
           </article>

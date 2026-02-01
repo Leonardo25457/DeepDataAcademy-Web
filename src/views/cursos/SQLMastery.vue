@@ -38,7 +38,7 @@
         >
           <!-- CTA 1 -->
           <a
-            href="#"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScwn8qtg8XlVuCaSPOTrVaxnrhzPdYa_HUYBfE7tkMqFtSbwg/viewform"
             class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-semibold text-base transition shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
             Inscribirse ahora
@@ -62,7 +62,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div class="flex flex-col items-center">
               <span class="text-3xl font-bold text-slate-900 dark:text-white"
-                >10</span
+                >12</span
               >
               <span
                 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1"
@@ -73,7 +73,7 @@
 
             <div class="flex flex-col items-center">
               <span class="text-3xl font-bold text-slate-900 dark:text-white"
-                >8+</span
+                >5</span
               >
               <span
                 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 mt-1"

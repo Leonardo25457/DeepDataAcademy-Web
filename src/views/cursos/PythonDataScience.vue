@@ -39,7 +39,7 @@
         >
           <!-- CTA 1 -->
           <a
-            href="#"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScwn8qtg8XlVuCaSPOTrVaxnrhzPdYa_HUYBfE7tkMqFtSbwg/viewform"
             class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-semibold text-base transition shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
             Inscribirse ahora

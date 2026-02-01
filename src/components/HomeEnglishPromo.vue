@@ -69,7 +69,6 @@
               </div>
 
               <div class="space-y-6">
-                
                 <span
                   class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/25 text-violet-700 dark:bg-violet-300/12 dark:border-violet-200/30 dark:text-violet-100 text-[11px] font-extrabold tracking-[0.18em] uppercase"
                 >
@@ -85,7 +84,6 @@
                   >
                 </h3>
 
-                
                 <p
                   class="text-slate-600 dark:text-slate-200 text-base sm:text-lg leading-relaxed"
                 >
@@ -94,16 +92,15 @@
                 </p>
 
                 <div class="pt-4 flex flex-wrap items-center gap-4 sm:gap-6">
-                  <button
-                    type="button"
+                  <RouterLink
+                    to="/webinars"
                     class="inline-flex cursor-pointer items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-white bg-gradient-to-r from-violet-600 to-sky-500 hover:opacity-95 transition-transform transform hover:scale-[1.02] shadow-lg shadow-violet-500/25 dark:shadow-violet-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
-                    @click="emit('view-bootcamps')"
                   >
                     Ver Cursos
                     <span class="material-icons-round text-base"
                       >arrow_forward</span
                     >
-                  </button>
+                  </RouterLink>
                 </div>
 
                 <!-- Small perks -->
