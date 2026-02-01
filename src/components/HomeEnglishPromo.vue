@@ -146,9 +146,7 @@
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits<{
-  (e: "view-bootcamps"): void;
-}>();
+
 
 const leftImage = "/img/estudiando-anime.png";
 </script>
