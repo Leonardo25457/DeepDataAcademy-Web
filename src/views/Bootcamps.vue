@@ -14,7 +14,7 @@
           <h2
             class="text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900 dark:text-white"
           >
-            Webinars y eventos
+            Nuestros Bootcamps
           </h2>
 
           <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -25,7 +25,7 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <article
-            v-for="w in webinars"
+            v-for="w in bootcamps"
             :key="w.id"
             class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300 flex flex-col h-full"
           >
@@ -87,5 +87,5 @@
 
 <script setup lang="ts">
 import CountdownStrip from "../components/CountdownStrip.vue";
-import webinars from "../data/webinars";
+import bootcamps from "../data/bootcamps";
 </script>

@@ -12,7 +12,7 @@
     <AdvisorWidget
       position="right"
       whatsapp="51999999999"
-      brand="DeepData Academy"
+      brand="StackLab Academy"
       title="Asesora Académica"
     />
 
@@ -52,9 +52,4 @@ onMounted(() => {
   isPromoOpen.value = true; 
 });
 
-// onMounted(() => {
-//   const key = "deepdata_workshops_feb_modal_hidden";
-//   const alreadyHidden = localStorage.getItem(key) === "1";
-//   if (!alreadyHidden) isPromoOpen.value = true;
-// });
 </script>

@@ -6,37 +6,53 @@
       class="grid grid-cols-4 divide-x divide-slate-200 dark:divide-slate-700/60"
     >
       <div class="text-center px-2 sm:px-4 py-4 sm:py-5 min-w-0">
-        <span class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none">
+        <span
+          class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none"
+        >
           {{ dd }}
         </span>
-        <span class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none">
+        <span
+          class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none"
+        >
           Días
         </span>
       </div>
 
       <div class="text-center px-2 sm:px-4 py-4 sm:py-5 min-w-0">
-        <span class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none">
+        <span
+          class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none"
+        >
           {{ hh }}
         </span>
-        <span class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none">
+        <span
+          class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none"
+        >
           Horas
         </span>
       </div>
 
       <div class="text-center px-2 sm:px-4 py-4 sm:py-5 min-w-0">
-        <span class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none">
+        <span
+          class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none"
+        >
           {{ mm }}
         </span>
-        <span class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none">
+        <span
+          class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none"
+        >
           Minutos
         </span>
       </div>
 
       <div class="text-center px-2 sm:px-4 py-4 sm:py-5 min-w-0">
-        <span class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none">
+        <span
+          class="block text-[28px] sm:text-3xl font-bold tabular-nums text-slate-900 dark:text-white leading-none"
+        >
           {{ ss }}
         </span>
-        <span class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none">
+        <span
+          class="mt-1 block text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold leading-none"
+        >
           Segundos
         </span>
       </div>
@@ -45,19 +61,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed } from "vue";
 
-const props = defineProps<{ target: string | Date }>();
-
-const now = ref(Date.now());
-let timer: number | null = null;
-
-onMounted(() => {
-  timer = window.setInterval(() => (now.value = Date.now()), 1000);
-});
-onBeforeUnmount(() => {
-  if (timer) window.clearInterval(timer);
-});
+const props = defineProps<{
+  target: string | Date;
+  now?: number; // ✅ nuevo (timestamp en ms)
+}>();
 
 function toDate(v: string | Date) {
   return v instanceof Date ? v : new Date(v);
@@ -69,9 +78,11 @@ function pad2(n: number) {
   return String(n).padStart(2, "0");
 }
 
+const nowMs = computed(() => props.now ?? Date.now());
+
 const parts = computed(() => {
   const t = toDate(props.target).getTime();
-  const diff = clamp0(t - now.value);
+  const diff = clamp0(t - nowMs.value);
 
   const totalSec = Math.floor(diff / 1000);
   const days = Math.floor(totalSec / 86400);

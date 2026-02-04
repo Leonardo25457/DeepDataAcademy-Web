@@ -37,7 +37,9 @@
         >
           <!-- CTA 1 -->
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScwn8qtg8XlVuCaSPOTrVaxnrhzPdYa_HUYBfE7tkMqFtSbwg/viewform"
+            :href="primaryWhatsappHref"
+            target="_blank"
+            rel="noopener noreferrer"
             class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-semibold text-base transition shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
             Inscribirse ahora
@@ -305,11 +307,24 @@
 <script setup lang="ts">
 import { useTheme } from "../../composables/useTheme";
 import AdvisorWidget from "../../components/AdvisorWidget.vue";
+import { computed } from "vue";
 
 useTheme();
 
 const dockerCmd =
   'docker ps --format "table {{.ID}}\\t{{.Image}}\\t{{.Status}}"';
+
+const WHATSAPP_NUMBER = "51970110199";
+
+function buildWhatsappHref(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+const primaryWhatsappHref = computed(() =>
+  buildWhatsappHref(
+    "Hola, quiero inscribirme al Bootcamp : Linux y Redes . ¿Me brindan mayor información, por favor?",
+  ),
+);
 </script>
 
 <style scoped>

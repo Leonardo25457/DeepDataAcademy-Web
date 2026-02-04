@@ -1,15 +1,22 @@
-// src/data/webinars.ts
-export type Webinar = {
+export type Bootcamp = {
   id: string;
   title: string;
   description: string;
   start: string;
   badge: string;
   image: string;
-  tag: "Desarrollo Web" | "SQL" | "Linux" | "Python & ML" | "Azure Fundamentals";
+  tag:
+    | "Desarrollo Web"
+    | "SQL"
+    | "Linux"
+    | "Python & ML"
+    | "Azure Fundamentals";
+  hours: number;
+  price: number;
+  to: string;
 };
 
-const webinars: Webinar[] = [
+const Bootcamps: Bootcamp[] = [
   {
     id: "devweb-landing-vue",
     title: "Desarrollo Web: Landing Pro con Vue",
@@ -18,8 +25,10 @@ const webinars: Webinar[] = [
     start: "2026-03-05T20:00:00-05:00",
     badge: "Desarrollo Web",
     tag: "Desarrollo Web",
-    image:
-      "/img/Azure_Work.png",
+    image: "/img/Azure_Work.png",
+    hours: 72,
+    price: 300,
+    to: "/cursos/FrontendMastery",
   },
   {
     id: "sql-fundamentos-joins",
@@ -29,8 +38,10 @@ const webinars: Webinar[] = [
     start: "2026-03-07T20:00:00-05:00",
     badge: "SQL",
     tag: "SQL",
-    image:
-      "/img/SQL_Work.png",
+    image: "/img/SQL_Work.png",
+    hours: 72,
+    price: 300,
+    to: "/cursos/SQLMastery",
   },
   {
     id: "linux-terminal-scripting",
@@ -40,8 +51,10 @@ const webinars: Webinar[] = [
     start: "2026-03-10T20:00:00-05:00",
     badge: "Linux",
     tag: "Linux",
-    image:
-      "/img/Linux_Work.png",
+    image: "/img/Linux_Work.png",
+    hours: 72,
+    price: 300,
+    to: "/cursos/LinuxAdmin",
   },
   {
     id: "python-ml-pipeline",
@@ -51,8 +64,10 @@ const webinars: Webinar[] = [
     start: "2026-03-12T20:00:00-05:00",
     badge: "Python & ML",
     tag: "Python & ML",
-    image:
-      "/img/Python_Work.png",
+    image: "/img/Python_Work.png",
+    hours: 72,
+    price: 300,
+    to: "/cursos/PythonDataScience",
   },
   {
     id: "azure-az900-fundamentals",
@@ -62,9 +77,11 @@ const webinars: Webinar[] = [
     start: "2026-03-14T10:00:00-05:00",
     badge: "Azure Fundamentals",
     tag: "Azure Fundamentals",
-    image:
-      "/img/Azure_Work.png",
+    image: "/img/Azure_Work.png",
+    hours: 72,
+    price: 300,
+    to: "/cursos/AzureFundamentals",
   },
 ];
 
-export default webinars;
+export default Bootcamps;

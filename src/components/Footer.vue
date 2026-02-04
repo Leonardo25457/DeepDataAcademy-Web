@@ -9,7 +9,6 @@
     ></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- ✅ 3 columnas balanceadas -->
       <div class="grid gap-12 mb-16 lg:grid-cols-3">
         <!-- Brand -->
         <div>
@@ -88,7 +87,7 @@
         <!-- Programs -->
         <div>
           <h4 class="font-bold mb-6 text-slate-900 dark:text-white">
-            Programas
+            Bootcamps
           </h4>
           <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
             <li>
@@ -96,7 +95,7 @@
                 class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
                 to="/cursos/PythonDataScience"
               >
-                PythonDataScience
+                Python
               </RouterLink>
             </li>
             <li>
@@ -112,7 +111,7 @@
                 class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
                 to="/cursos/SQLMastery"
               >
-                SQL Mastery
+                SQL
               </RouterLink>
             </li>
             <li>
@@ -128,7 +127,7 @@
                 class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
                 to="/cursos/LinuxAdmin"
               >
-                Linux Administration
+                Linux y Redes
               </RouterLink>
             </li>
           </ul>

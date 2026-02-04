@@ -31,7 +31,6 @@
 
         <!-- Links (Desktop) -->
         <div class="hidden md:flex items-center gap-8">
-          <!-- ✅ Dropdown Desktop controlado por estado -->
           <div class="relative" @mouseleave="closeDesktopCourses">
             <button
               class="flex items-center cursor-pointer gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 rounded"
@@ -62,7 +61,7 @@
                   <h4
                     class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4"
                   >
-                    Especializaciones
+                    Bootcamps
                   </h4>
                   <ul
                     class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
@@ -73,7 +72,7 @@
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                         @click="closeAllMenus"
                       >
-                        Python Data Science
+                        Python
                       </RouterLink>
                     </li>
 
@@ -93,7 +92,7 @@
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                         @click="closeAllMenus"
                       >
-                        SQL Mastery
+                        SQL
                       </RouterLink>
                     </li>
 
@@ -113,48 +112,17 @@
                         class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                         @click="closeAllMenus"
                       >
-                        Linux Administration
+                        Linux y Redes
                       </RouterLink>
                     </li>
                   </ul>
                 </div>
 
-                <!-- <div>
+                <div>
                   <h4
                     class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4"
                   >
-                    Cursos
-                  </h4>
-                  <ul
-                    class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
-                  >
-                    
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                      @click="closeAllMenus"
-                    >
-                      Python Pro
-                    </li>
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                      @click="closeAllMenus"
-                    >
-                      Azure
-                    </li>
-                    <li
-                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
-                      @click="closeAllMenus"
-                    >
-                      IA Generativa
-                    </li>
-                  </ul>
-                </div> -->
-
-                <!-- <div>
-                  <h4
-                    class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4"
-                  >
-                    Gratuitos
+                    Workshops
                   </h4>
                   <ul
                     class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
@@ -163,17 +131,55 @@
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                       @click="closeAllMenus"
                     >
-                      Intro a SQL
+                      Visión Artificial con Python - IA en acción
                     </li>
                     <li
                       class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                       @click="closeAllMenus"
                     >
-                      Git &amp; GitHub
+                      Clona plataformas tipo Crunchyroll
+                    </li>
+                    <li
+                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
+                    >
+                      Automatiza tu terminal como un PRO
+                    </li>
+                    <li
+                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
+                    >
+                      Despliega en Azure como en la industria
+                    </li>
+                    <li
+                      class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                      @click="closeAllMenus"
+                    >
+                      SQL de película: Datos que cuentan historias
                     </li>
                   </ul>
-                </div> -->
+                </div>
 
+                <div>
+                  <h4
+                    class="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-4"
+                  >
+                    Nosotros
+                  </h4>
+                  <ul
+                    class="space-y-3 text-sm text-slate-600 dark:text-slate-400"
+                  >
+                    <li>
+                      <RouterLink
+                        to="/nosotros"
+                        class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                        @click="closeAllMenus"
+                      >
+                        Sobre Nosotros
+                      </RouterLink>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -206,7 +212,7 @@
       </div>
     </div>
 
-    <!-- ✅ Mobile Fullscreen Menu (Teleport to body) -->
+    <!-- Mobile Fullscreen Menu (Teleport to body) -->
     <Teleport to="body">
       <transition name="fade">
         <div v-if="isMenuOpen" class="fixed inset-0 z-[9999]">
@@ -308,7 +314,7 @@
                       <h4
                         class="text-[11px] font-bold uppercase tracking-wider text-indigo-500 mb-3"
                       >
-                        Especializaciones
+                        Bootcamps
                       </h4>
                       <ul
                         class="space-y-2 text-sm text-slate-700 dark:text-slate-300"
@@ -361,64 +367,68 @@
                       </ul>
                     </div>
 
-                    <!-- <div class="pt-6">
+                    <div class="pt-6">
                       <h4
                         class="text-[11px] font-bold uppercase tracking-wider text-indigo-500 mb-3"
                       >
-                        Cursos
+                        Workshops
                       </h4>
                       <ul
                         class="space-y-2 text-sm text-slate-700 dark:text-slate-300"
                       >
-                        <li>
-                          <span
-                            class="mobile-link cursor-pointer"
-                            @click="closeAllMenus"
-                            >Python Pro</span
-                          >
+                        <li
+                          class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                          @click="closeAllMenus"
+                        >
+                          Visión Artificial con Python - IA en acción
                         </li>
-                        <li>
-                          <span
-                            class="mobile-link cursor-pointer"
-                            @click="closeAllMenus"
-                            >Azure</span
-                          >
+                        <li
+                          class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                          @click="closeAllMenus"
+                        >
+                          Clona plataformas tipo Crunchyroll
                         </li>
-                        <li>
-                          <span
-                            class="mobile-link cursor-pointer"
-                            @click="closeAllMenus"
-                            >IA Generativa</span
-                          >
+                        <li
+                          class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                          @click="closeAllMenus"
+                        >
+                          Automatiza tu terminal como un PRO
+                        </li>
+                        <li
+                          class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                          @click="closeAllMenus"
+                        >
+                          Despliega en Azure como en la industria
+                        </li>
+                        <li
+                          class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
+                          @click="closeAllMenus"
+                        >
+                          SQL de película: Datos que cuentan historias
                         </li>
                       </ul>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="pt-6">
+                    <div class="pt-6">
                       <h4
                         class="text-[11px] font-bold uppercase tracking-wider text-indigo-500 mb-3"
                       >
-                        Gratuitos
+                        Nosotros
                       </h4>
                       <ul
                         class="space-y-2 text-sm text-slate-700 dark:text-slate-300"
                       >
                         <li>
-                          <span
-                            class="mobile-link cursor-pointer"
+                          <RouterLink
+                            to="/nosotros"
+                            class="hover:text-indigo-500 dark:hover:text-white transition-colors cursor-pointer"
                             @click="closeAllMenus"
-                            >Intro a SQL</span
                           >
-                        </li>
-                        <li>
-                          <span
-                            class="mobile-link cursor-pointer"
-                            @click="closeAllMenus"
-                            >Git &amp; GitHub</span
-                          >
+                            Sobre Nosotros
+                          </RouterLink>
                         </li>
                       </ul>
-                    </div> -->
+                    </div>
                   </div>
                 </transition>
               </div>

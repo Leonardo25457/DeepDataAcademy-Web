@@ -16,51 +16,74 @@
       <Transition name="fade-slide" mode="out-in">
         <div
           :key="current.id"
-          class="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 items-start lg:items-center min-h-[760px] sm:min-h-[820px] lg:min-h-[520px]"
+          class="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 items-start lg:items-center
+                 min-h-[760px] sm:min-h-[820px] lg:min-h-[520px]
+                 [@media(max-height:820px)]:lg:min-h-[480px]"
         >
           <!-- Left -->
           <div class="order-1 min-w-0 text-center lg:text-left">
             <div
-              class="inline-flex items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-500/30 mb-5 sm:mb-7 backdrop-blur-sm shadow-sm"
+              class="inline-flex items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-full
+                     bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300
+                     border border-blue-200 dark:border-blue-500/30 mb-5 sm:mb-7
+                     [@media(max-height:820px)]:lg:mb-4 backdrop-blur-sm shadow-sm"
             >
-              <span
-                class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"
-              ></span>
-              <span
-                class="text-[10px] sm:text-xs font-bold uppercase tracking-wider"
-              >
+              <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                 Workshop Online • Próximamente
               </span>
             </div>
 
             <h1
-              class="min-w-0 mx-auto lg:mx-0 max-w-[26ch] sm:max-w-none text-3xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.06] tracking-tight text-slate-900 dark:text-white mb-4 sm:mb-6 whitespace-normal break-words"
+              class="min-w-0 mx-auto lg:mx-0
+                     max-w-[26ch] sm:max-w-none lg:max-w-[22ch]
+                     text-balance
+                     text-3xl sm:text-5xl
+                     lg:text-[clamp(3.1rem,4.6vw,4.6rem)]
+                     [@media(max-height:820px)]:lg:text-[clamp(2.7rem,4.0vw,4.0rem)]
+                     font-extrabold leading-[1.06]
+                     [@media(max-height:820px)]:lg:leading-[1.02]
+                     tracking-tight text-slate-900 dark:text-white
+                     mb-4 sm:mb-6 [@media(max-height:820px)]:lg:mb-4
+                     whitespace-normal break-words"
             >
               <span class="block w-full whitespace-normal break-words">
                 {{ current.title }}
               </span>
 
               <span
-                class="block w-full whitespace-normal break-words text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-400"
+                class="block w-full whitespace-normal break-words text-transparent bg-clip-text
+                       bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-400"
               >
                 {{ current.highlight }}
               </span>
             </h1>
 
             <p
-              class="text-[15px] sm:text-lg text-slate-600 dark:text-slate-400 mb-6 sm:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              class="text-[15px] sm:text-lg
+                     lg:text-[clamp(1rem,1.25vw,1.125rem)]
+                     [@media(max-height:820px)]:lg:text-[0.98rem]
+                     text-slate-600 dark:text-slate-400
+                     mb-6 sm:mb-8 lg:mb-10 [@media(max-height:820px)]:lg:mb-6
+                     max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
               {{ current.description }}
             </p>
 
             <div
-              class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 justify-center lg:justify-start"
+              class="flex flex-col sm:flex-row gap-3 sm:gap-4
+                     mb-6 sm:mb-8 lg:mb-10 [@media(max-height:820px)]:lg:mb-6
+                     justify-center lg:justify-start"
             >
               <a
                 :href="current.primaryHref"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full sm:w-auto justify-center bg-indigo-500 hover:bg-indigo-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold inline-flex items-center gap-2 transition-transform sm:hover:scale-105 shadow-lg shadow-indigo-500/30"
+                class="w-full sm:w-auto justify-center bg-indigo-500 hover:bg-indigo-600 text-white
+                       px-6 sm:px-8 py-3.5 sm:py-4
+                       [@media(max-height:820px)]:lg:py-3
+                       rounded-xl font-bold inline-flex items-center gap-2 transition-transform
+                       sm:hover:scale-105 shadow-lg shadow-indigo-500/30"
               >
                 {{ current.primaryLabel }}
                 <span class="material-icons-round text-sm">rocket_launch</span>
@@ -68,27 +91,37 @@
 
               <RouterLink
                 :to="current.secondaryTo"
-                class="w-full sm:w-auto justify-center bg-white dark:bg-white text-slate-900 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm inline-flex items-center"
+                class="w-full sm:w-auto justify-center bg-white dark:bg-white text-slate-900
+                       px-6 sm:px-8 py-3.5 sm:py-4
+                       [@media(max-height:820px)]:lg:py-3
+                       rounded-xl font-bold border border-slate-200 hover:bg-slate-50
+                       transition-colors shadow-sm inline-flex items-center"
               >
                 {{ current.secondaryLabel }}
               </RouterLink>
             </div>
 
-            <div class="max-w-xl mx-auto lg:mx-0">
-              <CountdownStrip :target="current.target" class="w-full" />
+            <div class="max-w-xl mx-auto lg:mx-0 [@media(max-height:820px)]:lg:max-w-[520px]">
+              <!-- ✅ ahora sí: contador vivo SOLO en este componente -->
+              <CountdownStrip :target="current.target" :now="now" class="w-full" />
             </div>
           </div>
 
           <!-- Right -->
-          <div
-            class="relative group order-2 min-w-0 w-full mt-6 sm:mt-8 lg:mt-0"
-          >
+          <div class="relative group order-2 min-w-0 w-full mt-6 sm:mt-8 lg:mt-0">
             <div
-              class="absolute -inset-2 sm:-inset-4 bg-gradient-to-tr from-indigo-500 to-blue-500 rounded-[2rem] blur-3xl opacity-20 group-hover:opacity-40 transition-all duration-700"
+              class="absolute -inset-2 sm:-inset-4 bg-gradient-to-tr from-indigo-500 to-blue-500
+                     rounded-[2rem] blur-3xl opacity-20 group-hover:opacity-40 transition-all duration-700"
             ></div>
 
             <div
-              class="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[420px] xl:max-w-[485px] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-200/50 dark:border-white/10 shadow-2xl transform lg:group-hover:rotate-1 transition-transform duration-500"
+              class="relative mx-auto w-full
+                     max-w-[280px] sm:max-w-[360px] md:max-w-[420px]
+                     lg:max-w-[420px] xl:max-w-[485px]
+                     [@media(max-height:820px)]:lg:max-w-[390px]
+                     rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden
+                     border border-slate-200/50 dark:border-white/10
+                     shadow-2xl transform lg:group-hover:rotate-1 transition-transform duration-500"
               :style="{ aspectRatio: aspectById[current.id] ?? '4 / 5' }"
             >
               <img
@@ -103,7 +136,7 @@
       </Transition>
 
       <!-- Dots -->
-      <div class="mt-6 sm:mt-9 lg:mt-12 flex justify-center gap-3">
+      <div class="mt-6 sm:mt-9 lg:mt-10 [@media(max-height:820px)]:lg:mt-6 flex justify-center gap-3">
         <button
           v-for="(s, i) in slides"
           :key="s.id"
@@ -152,7 +185,7 @@ const slides: Slide[] = [
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Clona plataformas tipo Crunchyroll. ¿Me brindan información, por favor?",
+      "Hola, quiero inscribirme al workshop: Clona plataformas tipo Crunchyroll. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/FrontendMastery",
@@ -167,7 +200,7 @@ const slides: Slide[] = [
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Visión Artificial con Python • IA en acción. ¿Me brindan información, por favor?",
+      "Hola, quiero inscribirme al workshop: Visión Artificial con Python • IA en acción. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/PythonDataScience",
@@ -182,7 +215,7 @@ const slides: Slide[] = [
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Automatiza tu terminal como un PRO. ¿Me brindan información, por favor?",
+      "Hola, quiero inscribirme al workshop: Automatiza tu terminal como un PRO. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/LinuxAdmin",
@@ -197,7 +230,7 @@ const slides: Slide[] = [
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: Despliega en Azure como en la industria. ¿Me brindan información, por favor?",
+      "Hola, quiero inscribirme al workshop: Despliega en Azure como en la industria. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/AzureFundamentals",
@@ -212,7 +245,7 @@ const slides: Slide[] = [
     target: "2026-03-05T19:00:00-05:00",
     primaryLabel: "¡Inscríbete ahora!",
     primaryHref: buildWhatsappHref(
-      "Hola, quiero inscribirme al workshop: SQL de película: Datos que cuentan historias. ¿Me brindan información, por favor?",
+      "Hola, quiero inscribirme al workshop: SQL de película: Datos que cuentan historias. ¿Me brindan información, por favor?"
     ),
     secondaryLabel: "Ver detalles",
     secondaryTo: "/cursos/SQLMastery",
@@ -221,6 +254,23 @@ const slides: Slide[] = [
 
 const active = ref(0);
 const current = computed(() => slides[active.value]);
+
+/** ✅ Reloj local SOLO para este componente (para mantener el contador vivo) */
+const now = ref(Date.now());
+let tickId: number | null = null;
+
+function startTick() {
+  if (tickId) return;
+  tickId = window.setInterval(() => {
+    now.value = Date.now();
+  }, 1000);
+}
+
+function stopTick() {
+  if (!tickId) return;
+  window.clearInterval(tickId);
+  tickId = null;
+}
 
 /** Aspect Ratio por imagen */
 const aspectById = ref<Record<string, string>>({});
@@ -285,11 +335,13 @@ function onTouchEnd(e: TouchEvent) {
 
 onMounted(() => {
   preloadAspects();
-  start();
+  start();     
+  startTick();  
 });
 
 onUnmounted(() => {
   stop();
+  stopTick();
 });
 </script>
 
@@ -310,9 +362,7 @@ onUnmounted(() => {
 
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition:
-    opacity 320ms ease,
-    transform 320ms ease;
+  transition: opacity 320ms ease, transform 320ms ease;
 }
 .fade-slide-enter-from {
   opacity: 0;

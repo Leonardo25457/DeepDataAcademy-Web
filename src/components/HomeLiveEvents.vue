@@ -1,8 +1,9 @@
 <template>
   <section
+    ref="sectionRef"  
     class="py-24 relative isolate overflow-hidden border-t transition-colors duration-300
-         bg-white/30 dark:bg-white/0 backdrop-blur-[2px]
-         border-slate-200 dark:border-slate-800/50"
+           bg-white/30 dark:bg-white/0 backdrop-blur-[2px]
+           border-slate-200 dark:border-slate-800/50"
   >
     <!-- Blobs / glow background -->
     <div
@@ -18,7 +19,7 @@
       <!-- Header -->
       <div class="text-center mb-16 max-w-3xl mx-auto">
         <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-          <span class="text-gradient">Descubre Nuestros Webinars </span>
+          <span class="text-gradient">Descubre Nuestros Bootcamps</span>
         </h2>
         <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300/80">
           Accede a especializaciones diseñadas para impulsar tu carrera.
@@ -26,92 +27,104 @@
         </p>
       </div>
 
-      <!-- Top row (3) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      <!-- Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <article
-          v-for="c in topCourses"
-          :key="c.title"
-          class="card-container group relative rounded-2xl overflow-hidden h-[420px] shadow-xl
-                 bg-white border border-slate-200
-                 dark:bg-slate-950/60 dark:border-slate-800"
+          v-for="w in bootcamps"
+          :key="w.id"
+          class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden
+                 group hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300
+                 flex flex-col h-full"
         >
-          <div class="glow-effect absolute inset-0 rounded-2xl"></div>
-
-          <!-- Image -->
-          <div class="absolute inset-0">
+          <!-- Imagen -->
+          <div class="aspect-video relative overflow-hidden">
             <img
-              :alt="c.alt"
-              :src="c.image"
-              class="w-full h-full object-cover
-                     opacity-95 dark:opacity-90
-                     group-hover:scale-105 transition-transform duration-700 ease-out"
+              :alt="w.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              :src="w.image"
             />
 
-            <!-- ✅ Overlay SUAVE global (para contraste mínimo, NO tapa logos) -->
-            <div class="absolute inset-0 soft-overlay" />
+            <!-- ✅ Badge horas (tipo ejemplo 72 Hrs.) -->
+            <div class="absolute top-3 left-3 z-10">
+              <span
+                class="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1
+                       bg-slate-950/80 text-white text-[11px] font-extrabold
+                       border border-white/15 backdrop-blur"
+              >
+                {{ (w.hours ?? 72) }} Hrs.
+              </span>
+            </div>
 
-            <!-- ✅ Banda inferior: aquí va la legibilidad del texto (SIN tapar el centro) -->
-            <div class="absolute inset-0 bottom-band" />
-          </div>
-
-          <!-- Content: pegado abajo -->
-          <div class="relative z-10 h-full p-6 sm:p-7 lg:p-8">
-            <div class="h-full flex flex-col justify-end">
-              <div class="caption-box">
-                <h3 class="caption-title">
-                  <span class="block line-clamp-2">{{ c.title }}</span>
-                </h3>
-
-                <p class="caption-desc">
-                  <span class="block line-clamp-3">{{ c.description }}</span>
-                </p>
-
-                <RouterLink :to="c.to" class="btn-cta">
-                  Ver 
-                </RouterLink>
-              </div>
+            <!-- Badge categoría -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-6"
+            >
+              <span
+                class="bg-indigo-500/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide"
+              >
+                {{ w.badge ?? "Especialización" }}
+              </span>
             </div>
           </div>
-        </article>
-      </div>
 
-      <!-- Bottom row (2 centered) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:w-2/3 mx-auto gap-8">
-        <article
-          v-for="c in bottomCourses"
-          :key="c.title"
-          class="card-container group relative rounded-2xl overflow-hidden h-[420px] shadow-xl
-                 bg-white border border-slate-200
-                 dark:bg-slate-950/60 dark:border-slate-800"
-        >
-          <div class="glow-effect absolute inset-0 rounded-2xl"></div>
+          <!-- Cuerpo -->
+          <div class="p-6 flex flex-col flex-1">
+            <h3
+              class="text-lg font-bold text-slate-900 dark:text-white leading-snug min-h-[3.25rem]"
+            >
+              {{ w.title }}
+            </h3>
 
-          <div class="absolute inset-0">
-            <img
-              :alt="c.alt"
-              :src="c.image"
-              class="w-full h-full object-cover
-                     opacity-95 dark:opacity-90
-                     group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-3 min-h-[3.75rem]">
+              {{ w.description }}
+            </p>
 
-            <div class="absolute inset-0 soft-overlay" />
-            <div class="absolute inset-0 bottom-band" />
-          </div>
+            <!-- ✅ Precio -->
+            <div class="mt-4 flex items-center justify-between">
+              <span
+                class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400"
+              >
+                Precio
+              </span>
+              <span class="text-lg font-extrabold text-slate-900 dark:text-white">
+                S/. {{ (w.price ?? 300) }}
+              </span>
+            </div>
 
-          <div class="relative z-10 h-full p-6 sm:p-7 lg:p-8">
-            <div class="h-full flex flex-col justify-end">
-              <div class="caption-box">
-                <h3 class="caption-title">
-                  <span class="block line-clamp-2">{{ c.title }}</span>
-                </h3>
+            <!-- Parte inferior -->
+            <div class="mt-auto pt-6">
+              <div class="min-h-[76px]">
+                <CountdownStrip :target="w.start" :now="now" />
+              </div>
 
-                <p class="caption-desc">
-                  <span class="block line-clamp-3">{{ c.description }}</span>
-                </p>
+              <!-- ✅ Botones -->
+              <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Inscribirse -> WhatsApp -->
+                <a
+                  :href="buildWhatsappHref(
+                    `Hola, quiero inscribirme al bootcamp: ${w.title}. ¿Me brindan mayor información, por favor?`
+                  )"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full inline-flex justify-center items-center gap-2
+                         bg-indigo-600 hover:bg-indigo-700 text-white
+                         py-3.5 rounded-xl font-bold transition-colors text-sm"
+                >
+                  Inscribirse
+                  <span class="material-icons-round text-[18px]">arrow_forward</span>
+                </a>
 
-                <RouterLink :to="c.to" class="btn-cta">
-                  Ver
+                <!-- Detalle -> RouterLink -->
+                <RouterLink
+                  :to="detailTo(w)"
+                  class="w-full inline-flex justify-center items-center gap-2
+                         bg-white/90 hover:bg-white text-slate-900
+                         dark:bg-white/10 dark:hover:bg-white/15 dark:text-white
+                         py-3.5 rounded-xl font-bold border border-slate-200 dark:border-white/15
+                         transition-colors text-sm"
+                >
+                  Detalle
+                  <span class="material-icons-round text-[18px]">open_in_new</span>
                 </RouterLink>
               </div>
             </div>
@@ -123,59 +136,74 @@
 </template>
 
 <script setup lang="ts">
-type CourseCard = {
+import { onMounted, onUnmounted, ref } from "vue";
+import CountdownStrip from "../components/CountdownStrip.vue";
+import bootcampsRaw from "../data/bootcamps";
+
+
+type BootcampItem = {
+  id: string | number;
   title: string;
   description: string;
   image: string;
-  alt: string;
-  to: string;
+  start: string;
+
+  badge?: string;
+  hours?: number;
+  price?: number;
+  to?: string;
+  slug?: string;
 };
 
-const courses: CourseCard[] = [
-  {
-    title: "Python Data Science",
-    description:
-      "Domina Python aplicado a análisis y ciencia de datos: ETL, visualización y fundamentos de ML.",
-    image: "/img/Python_Work.png",
-    alt: "Python Data Science",
-    to: "/webinars",
-  },
-  {
-    title: "Desarrollo Web",
-    description:
-      "Construye interfaces modernas y responsive con buenas prácticas, componentes y despliegue.",
-    image: "/img/Web.png",
-    alt: "Desarrollo Web",
-    to: "/webinars",
-  },
-  {
-    title: "SQL Mastery",
-    description:
-      "Aprende SQL desde cero a avanzado: consultas, modelado, optimización y análisis con datos reales.",
-    image: "/img/SQL_Work.png",
-    alt: "SQL Mastery",
-    to: "/webinars",
-  },
-  {
-    title: "Azure Fundamentals",
-    description:
-      "Empieza en cloud con Azure: servicios clave, identidad, recursos y buenas prácticas.",
-    image: "/img/Azure_Work.png",
-    alt: "Azure Fundamentals",
-    to: "/webinars",
-  },
-  {
-    title: "Linux Administration",
-    description:
-      "Administra Linux como pro: terminal, usuarios, permisos, servicios, redes y automatización.",
-    image: "/img/Linux_Work.png",
-    alt: "Linux Administration",
-    to: "/webinars",
-  },
-];
+const now = ref(Date.now());
+let timer: number | null = null;
 
-const topCourses = courses.slice(0, 3);
-const bottomCourses = courses.slice(3);
+const sectionRef = ref<HTMLElement | null>(null);
+let io: IntersectionObserver | null = null;
+
+function startTick() {
+  if (timer) return;
+  timer = window.setInterval(() => (now.value = Date.now()), 1000);
+}
+function stopTick() {
+  if (!timer) return;
+  window.clearInterval(timer);
+  timer = null;
+}
+
+const bootcamps = bootcampsRaw as BootcampItem[];
+
+const WHATSAPP_NUMBER = "51970110199";
+
+function buildWhatsappHref(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+function detailTo(w: BootcampItem) {
+  // Prioridad: w.to -> /bootcamps/:slug -> /bootcamps/:id
+  if (w.to) return w.to;
+  if (w.slug) return `/bootcamps/${w.slug}`;
+  return `/bootcamps/${w.id}`;
+}
+
+onMounted(() => {
+  io = new IntersectionObserver(
+    (entries) => {
+      const isVisible = entries.some((e) => e.isIntersecting);
+      if (isVisible) startTick();
+      else stopTick();
+    },
+    { threshold: 0.12 }
+  );
+
+  if (sectionRef.value) io.observe(sectionRef.value);
+});
+
+onUnmounted(() => {
+  stopTick();
+  io?.disconnect();
+});
+
 </script>
 
 <style scoped>
@@ -188,126 +216,5 @@ const bottomCourses = courses.slice(3);
 }
 :global(.dark) .text-gradient {
   background-image: linear-gradient(to right, #818cf8, #a78bfa, #60a5fa);
-}
-
-/* Glow effect */
-.glow-effect::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(
-    45deg,
-    rgba(99, 102, 241, 0.55),
-    transparent,
-    rgba(59, 130, 246, 0.55)
-  );
-  z-index: -1;
-  border-radius: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.card-container:hover .glow-effect::before {
-  opacity: 0.55;
-}
-
-/* ✅ Overlay suave global: NO mata logos/texto de la imagen */
-.soft-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(2, 6, 23, 0.05),
-    rgba(2, 6, 23, 0.10)
-  );
-}
-:global(.dark) .soft-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.10),
-    rgba(0, 0, 0, 0.22)
-  );
-}
-
-/* ✅ Banda inferior: aquí garantizamos lectura */
-.bottom-band {
-  background: linear-gradient(
-    to top,
-    rgba(2, 6, 23, 0.92) 0%,
-    rgba(2, 6, 23, 0.65) 28%,
-    rgba(2, 6, 23, 0.18) 62%,
-    rgba(2, 6, 23, 0.00) 100%
-  );
-}
-:global(.dark) .bottom-band {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.92) 0%,
-    rgba(0, 0, 0, 0.70) 30%,
-    rgba(0, 0, 0, 0.20) 65%,
-    rgba(0, 0, 0, 0.00) 100%
-  );
-}
-
-/* Caption box (abajo) */
-.caption-box {
-  border-radius: 1.25rem;
-  padding: 1.1rem 1.15rem;
-  background: rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(2px);
-}
-:global(.dark) .caption-box {
-  background: rgba(0, 0, 0, 0.10);
-}
-
-/* Tipografía */
-.caption-title {
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: white;
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-  font-size: 1.6rem;
-  line-height: 1.15;
-}
-@media (min-width: 640px) {
-  .caption-title {
-    font-size: 1.75rem;
-  }
-}
-@media (min-width: 1024px) {
-  .caption-title {
-    font-size: 2rem;
-  }
-}
-
-.caption-desc {
-  margin-top: 0.65rem;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.86rem;
-  line-height: 1.55;
-  min-height: 72px; /* alinea cards */
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-}
-
-/* Botón */
-.btn-cta {
-  margin-top: 1rem;
-  width: 100%;
-  padding: 0.8rem 1.25rem;
-  border-radius: 0.95rem;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-
-  color: white;
-  font-weight: 700;
-  text-align: center;
-  background-image: linear-gradient(to right, #4f6cf7, #3b82f6);
-  box-shadow: 0 18px 35px rgba(79, 108, 247, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.btn-cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 40px rgba(79, 108, 247, 0.35);
-  background-image: linear-gradient(to right, #3f55f0, #2563eb);
 }
 </style>

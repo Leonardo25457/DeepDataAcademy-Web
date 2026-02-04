@@ -227,10 +227,10 @@ const props = withDefaults(
     panelHeightSm?: number;
   }>(),
   {
-    brand: "DeepData Academy",
+    brand: "StackLab Academy",
     title: "Asesora Académica",
     position: "right",
-    avatarSrc: "/img/dda_girl_icon_transparent_256.png",
+    avatarSrc: "/img/Icon_academy.png",
     avatarSize: 140,
     avatarSizeSm: 92,
     bubbleResponsiveBp: 520,
